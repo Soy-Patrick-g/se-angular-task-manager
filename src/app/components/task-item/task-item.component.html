@@ -1,0 +1,34 @@
+<div
+  class="task-item"
+  [class.completed]="task.status"
+  [class.priority-high]="task.priority === 'high'"
+  [class.priority-medium]="task.priority === 'medium'"
+  [class.priority-low]="task.priority === 'low'"
+>
+  <div class="task-content">
+    <div class="checkbox-wrapper">
+      <input
+        type="checkbox"
+        [checked]="task.status"
+        (change)="toggleStatus()"
+        id="task-{{ task.id }}"
+      />
+      <label for="task-{{ task.id }}"></label>
+    </div>
+    <div class="task-details">
+      <h3 class="task-title">{{ task.title }}</h3>
+      <p class="task-description">{{ task.description }}</p>
+      <div class="meta">
+        <span class="priority-badge">{{ task.priority }}</span>
+        <span class="date">{{ task.createdAt | date: "shortDate" }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn-edit" (click)="onEdit()" title="Edit Task">✏️</button>
+    <button class="btn-delete" (click)="deleteTask()" title="Delete Task">
+      🗑️
+    </button>
+  </div>
+</div>

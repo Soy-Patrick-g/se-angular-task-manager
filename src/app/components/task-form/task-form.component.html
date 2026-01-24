@@ -1,0 +1,56 @@
+<div class="form-container">
+  <button class="btn-add" *ngIf="!showForm" (click)="toggleForm()">
+    + Add New Task
+  </button>
+
+  <form
+    [formGroup]="taskForm"
+    (ngSubmit)="onSubmit()"
+    *ngIf="showForm"
+    class="task-form"
+  >
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        id="title"
+        type="text"
+        formControlName="title"
+        placeholder="What needs to be done?"
+      />
+      <div
+        *ngIf="taskForm.get('title')?.invalid && taskForm.get('title')?.touched"
+        class="error"
+      >
+        Title is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        rows="3"
+        placeholder="Add details..."
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="priority">Priority</label>
+      <select id="priority" formControlName="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn-cancel" (click)="toggleForm()">
+        Cancel
+      </button>
+      <button type="submit" class="btn-save" [disabled]="taskForm.invalid">
+        Save Task
+      </button>
+    </div>
+  </form>
+</div>
