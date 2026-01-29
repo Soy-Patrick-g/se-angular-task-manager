@@ -21,7 +21,6 @@ import { Task } from "../../models/task.model";
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: "./task-form.component.html",
-  styleUrls: ["./task-form.component.css"],
 })
 export class TaskFormComponent implements OnChanges {
   @Input() taskToEdit: Task | null = null;

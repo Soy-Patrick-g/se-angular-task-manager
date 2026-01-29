@@ -1,7 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+html, body {
+  @apply h-full;
+}
+
 body {
-  margin: 0;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: #f0f2f5;
-  color: #333;
+    @apply m-0 font-sans bg-gray-50 text-gray-800;
 }

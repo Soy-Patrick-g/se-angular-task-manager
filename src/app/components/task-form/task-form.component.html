@@ -1,5 +1,9 @@
-<div class="form-container">
-  <button class="btn-add" *ngIf="!showForm" (click)="toggleForm()">
+<div class="mb-8">
+  <button
+    class="w-full p-4 bg-white border-2 border-dashed border-gray-300 rounded-lg text-gray-600 font-semibold cursor-pointer transition-all hover:border-blue-500 hover:text-blue-500 hover:bg-blue-50"
+    *ngIf="!showForm"
+    (click)="toggleForm()"
+  >
     + Add New Task
   </button>
 
@@ -7,48 +11,68 @@
     [formGroup]="taskForm"
     (ngSubmit)="onSubmit()"
     *ngIf="showForm"
-    class="task-form"
+    class="bg-white p-6 rounded-lg shadow-lg"
   >
-    <div class="form-group">
-      <label for="title">Title</label>
+    <div class="mb-4">
+      <label for="title" class="block font-medium mb-2 text-gray-800"
+        >Title</label
+      >
       <input
         id="title"
         type="text"
         formControlName="title"
         placeholder="What needs to be done?"
+        class="w-full p-3 border border-gray-300 rounded font-sans text-base focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
       />
       <div
         *ngIf="taskForm.get('title')?.invalid && taskForm.get('title')?.touched"
-        class="error"
+        class="text-red-500 text-sm mt-1"
       >
         Title is required.
       </div>
     </div>
 
-    <div class="form-group">
-      <label for="description">Description</label>
+    <div class="mb-4">
+      <label for="description" class="block font-medium mb-2 text-gray-800"
+        >Description</label
+      >
       <textarea
         id="description"
         formControlName="description"
         rows="3"
         placeholder="Add details..."
+        class="w-full p-3 border border-gray-300 rounded font-sans text-base focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
       ></textarea>
     </div>
 
-    <div class="form-group">
-      <label for="priority">Priority</label>
-      <select id="priority" formControlName="priority">
+    <div class="mb-4">
+      <label for="priority" class="block font-medium mb-2 text-gray-800"
+        >Priority</label
+      >
+      <select
+        id="priority"
+        formControlName="priority"
+        class="w-full p-3 border border-gray-300 rounded font-sans text-base focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
+      >
         <option value="low">Low</option>
         <option value="medium">Medium</option>
         <option value="high">High</option>
       </select>
     </div>
 
-    <div class="form-actions">
-      <button type="button" class="btn-cancel" (click)="toggleForm()">
+    <div class="flex justify-end gap-4 mt-6">
+      <button
+        type="button"
+        class="bg-transparent border-none text-gray-600 cursor-pointer font-medium hover:text-gray-800"
+        (click)="toggleForm()"
+      >
         Cancel
       </button>
-      <button type="submit" class="btn-save" [disabled]="taskForm.invalid">
+      <button
+        type="submit"
+        class="bg-blue-500 text-white border-none py-3 px-6 rounded font-semibold cursor-pointer transition-colors hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed"
+        [disabled]="taskForm.invalid"
+      >
         Save Task
       </button>
     </div>

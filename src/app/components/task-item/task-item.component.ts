@@ -9,20 +9,18 @@ import { FormsModule } from "@angular/forms"; // For checkbox
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: "./task-item.component.html",
-  styleUrls: ["./task-item.component.css"],
 })
 export class TaskItemComponent {
   @Input() task!: Task;
   @Output() edit = new EventEmitter<Task>();
   isEditing = false; // To handle inline edit if we want, or open form.
   // Using TaskFormComponent for edit as per plan ("User clicks Add Task -> Form opens").
-  // But plan also says "Edit a task".
+  // But our plan is to "Edit a task".
   // Let's assume Edit button opens Form with data.
   // But TaskFormComponent is separate.
   // Maybe TaskItem emits 'edit' event to TaskList which opens Form?
   // Or TaskForm is a modal?
-  // Let's simpler: Form is always visible at top (Add)?
-  // Or "User clicks 'Add Task' -> Form opens" implies modal or toggle.
+  // Let's simplify: Form is always visible at top and "User clicks 'Add Task' -> Form opens" implies modal or toggle.
 
   // For Edit: "User clicks Edit -> Form opens".
   // I'll emit 'edit' event, and TaskList handles opening Form?

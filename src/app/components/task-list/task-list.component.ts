@@ -11,7 +11,6 @@ import { TaskFormComponent } from "../task-form/task-form.component";
   standalone: true,
   imports: [CommonModule, TaskItemComponent, TaskFormComponent],
   templateUrl: "./task-list.component.html",
-  styleUrls: ["./task-list.component.css"],
 })
 export class TaskListComponent implements OnInit {
   tasks$: Observable<Task[]>;

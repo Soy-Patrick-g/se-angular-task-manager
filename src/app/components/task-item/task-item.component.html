@@ -1,33 +1,51 @@
 <div
-  class="task-item"
-  [class.completed]="task.status"
-  [class.priority-high]="task.priority === 'high'"
-  [class.priority-medium]="task.priority === 'medium'"
-  [class.priority-low]="task.priority === 'low'"
+  class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm transition-all border-l-4 hover:-translate-y-0.5 hover:shadow-md"
+  [ngClass]="{
+    'opacity-60 line-through': task.status,
+    'border-l-red-500': task.priority === 'high',
+    'border-l-yellow-500': task.priority === 'medium',
+    'border-l-green-500': task.priority === 'low',
+    'border-l-gray-300': !task.priority,
+  }"
 >
-  <div class="task-content">
-    <div class="checkbox-wrapper">
+  <div class="flex gap-4 items-start flex-1">
+    <div class="mt-1">
       <input
         type="checkbox"
         [checked]="task.status"
         (change)="toggleStatus()"
         id="task-{{ task.id }}"
+        class="cursor-pointer w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
       />
       <label for="task-{{ task.id }}"></label>
     </div>
-    <div class="task-details">
-      <h3 class="task-title">{{ task.title }}</h3>
-      <p class="task-description">{{ task.description }}</p>
-      <div class="meta">
-        <span class="priority-badge">{{ task.priority }}</span>
-        <span class="date">{{ task.createdAt | date: "shortDate" }}</span>
+    <div class="flex flex-col gap-1">
+      <h3 class="m-0 text-lg text-gray-800">{{ task.title }}</h3>
+      <p class="m-0 text-sm text-gray-600">{{ task.description }}</p>
+      <div class="flex gap-2 mt-1 text-xs">
+        <span class="capitalize font-semibold text-gray-500">{{
+          task.priority
+        }}</span>
+        <span class="text-gray-400">{{
+          task.createdAt | date: "shortDate"
+        }}</span>
       </div>
     </div>
   </div>
 
-  <div class="actions">
-    <button class="btn-edit" (click)="onEdit()" title="Edit Task">✏️</button>
-    <button class="btn-delete" (click)="deleteTask()" title="Delete Task">
+  <div class="ml-4 flex gap-1">
+    <button
+      class="bg-transparent border-none cursor-pointer text-xl p-1 opacity-50 hover:opacity-100 hover:text-blue-500 transition-opacity"
+      (click)="onEdit()"
+      title="Edit Task"
+    >
+      ✏️
+    </button>
+    <button
+      class="bg-transparent border-none cursor-pointer text-xl p-1 opacity-50 hover:opacity-100 hover:text-red-500 transition-opacity"
+      (click)="deleteTask()"
+      title="Delete Task"
+    >
       🗑️
     </button>
   </div>
