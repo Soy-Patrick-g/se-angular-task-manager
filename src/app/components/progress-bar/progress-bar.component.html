@@ -1,0 +1,14 @@
+<div
+  class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-6 overflow-hidden shadow-inner"
+>
+  <div
+    class="h-full bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 transition-all duration-500 ease-out flex items-center justify-center text-white text-xs font-semibold"
+    [style.width.%]="percentage"
+  >
+    <span *ngIf="percentage > 10" class="px-2">{{ percentage }}%</span>
+  </div>
+</div>
+<div class="flex justify-between mt-1 text-xs text-gray-600 dark:text-gray-400">
+  <span>{{ completed }} of {{ total }} completed</span>
+  <span *ngIf="total > 0">{{ total - completed }} remaining</span>
+</div>

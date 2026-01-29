@@ -1,11 +1,11 @@
 <div
-  class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm transition-all border-l-4 hover:-translate-y-0.5 hover:shadow-md"
+  class="flex justify-between items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm transition-all border-l-4 hover:-translate-y-0.5 hover:shadow-md"
   [ngClass]="{
     'opacity-60 line-through': task.status,
     'border-l-red-500': task.priority === 'high',
     'border-l-yellow-500': task.priority === 'medium',
     'border-l-green-500': task.priority === 'low',
-    'border-l-gray-300': !task.priority,
+    'border-l-gray-300 dark:border-l-gray-600': !task.priority,
   }"
 >
   <div class="flex gap-4 items-start flex-1">
@@ -20,13 +20,18 @@
       <label for="task-{{ task.id }}"></label>
     </div>
     <div class="flex flex-col gap-1">
-      <h3 class="m-0 text-lg text-gray-800">{{ task.title }}</h3>
-      <p class="m-0 text-sm text-gray-600">{{ task.description }}</p>
+      <h3 class="m-0 text-lg text-gray-800 dark:text-gray-100">
+        {{ task.title }}
+      </h3>
+      <p class="m-0 text-sm text-gray-600 dark:text-gray-400">
+        {{ task.description }}
+      </p>
       <div class="flex gap-2 mt-1 text-xs">
-        <span class="capitalize font-semibold text-gray-500">{{
-          task.priority
-        }}</span>
-        <span class="text-gray-400">{{
+        <span
+          class="capitalize font-semibold text-gray-500 dark:text-gray-400"
+          >{{ task.priority }}</span
+        >
+        <span class="text-gray-400 dark:text-gray-500">{{
           task.createdAt | date: "shortDate"
         }}</span>
       </div>
