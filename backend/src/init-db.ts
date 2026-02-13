@@ -4,7 +4,22 @@ const initDatabase = async () => {
   try {
     console.log("🔄 Initializing database...");
 
-    const createTableQuery = `
+    // Create users table first
+    const createUsersTableQuery = `
+      CREATE TABLE IF NOT EXISTS users (
+        id SERIAL PRIMARY KEY,
+        username VARCHAR(100) UNIQUE NOT NULL,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        password_hash VARCHAR(255) NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );
+    `;
+
+    await pool.query(createUsersTableQuery);
+    console.log("✅ Users table created successfully");
+
+    // Create tasks table with user_id reference
+    const createTasksTableQuery = `
       CREATE TABLE IF NOT EXISTS tasks (
         id SERIAL PRIMARY KEY,
         title VARCHAR(255) NOT NULL,
@@ -15,11 +30,16 @@ const initDatabase = async () => {
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         "order" INTEGER DEFAULT 0,
         due_date TIMESTAMP,
-        tags TEXT[]
+        start_date TIMESTAMP,
+        end_date TIMESTAMP,
+        estimated_time INTEGER,
+        time_spent INTEGER DEFAULT 0,
+        tags TEXT[],
+        user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
       );
     `;
 
-    await pool.query(createTableQuery);
+    await pool.query(createTasksTableQuery);
     console.log("✅ Tasks table created successfully");
 
     // Create indexes for better performance
