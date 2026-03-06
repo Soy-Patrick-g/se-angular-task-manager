@@ -2,7 +2,6 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import taskRoutes from "./routes/tasks";
-import authRoutes from "./routes/auth.routes";
 
 dotenv.config();
 
@@ -26,7 +25,6 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use("/api/auth", authRoutes);
 app.use("/api", taskRoutes);
 
 // Health check

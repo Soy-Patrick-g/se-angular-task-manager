@@ -3,7 +3,6 @@ import pool from "../config/database";
 
 export const getAllTasks = async (req: Request, res: Response) => {
   try {
-    const { userId } = req.query;
     let query = `
       SELECT 
         id, title, description, priority, status, 
@@ -15,17 +14,11 @@ export const getAllTasks = async (req: Request, res: Response) => {
         end_date as "endDate", 
         estimated_time as "estimatedTime", 
         time_spent as "timeSpent",
-        tags, user_id as "userId"
+        tags
        FROM tasks 
+       ORDER BY "order" ASC, created_at DESC
     `;
     const params: any[] = [];
-
-    if (userId) {
-      query += " WHERE user_id = $1 ";
-      params.push(userId);
-    }
-
-    query += ' ORDER BY "order" ASC, created_at DESC';
 
     const result = await pool.query(query, params);
     res.json(result.rows);
@@ -49,7 +42,7 @@ export const getTaskById = async (req: Request, res: Response) => {
         end_date as "endDate", 
         estimated_time as "estimatedTime", 
         time_spent as "timeSpent",
-        tags, user_id as "userId"
+        tags
        FROM tasks WHERE id = $1`,
       [id],
     );
@@ -76,7 +69,6 @@ export const createTask = async (req: Request, res: Response) => {
       endDate,
       estimatedTime,
       tags,
-      userId,
     } = req.body;
 
     if (!title) {
@@ -91,9 +83,9 @@ export const createTask = async (req: Request, res: Response) => {
 
     const result = await pool.query(
       `INSERT INTO tasks (
-        title, description, priority, "order", due_date, start_date, end_date, estimated_time, time_spent, tags, user_id
+        title, description, priority, "order", due_date, start_date, end_date, estimated_time, time_spent, tags
        ) 
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) 
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) 
        RETURNING 
         id, title, description, priority, status, 
         created_at as "createdAt", 
@@ -104,7 +96,7 @@ export const createTask = async (req: Request, res: Response) => {
         end_date as "endDate", 
         estimated_time as "estimatedTime", 
         time_spent as "timeSpent",
-        tags, user_id as "userId"`,
+        tags`,
       [
         title,
         description || "",
@@ -116,7 +108,6 @@ export const createTask = async (req: Request, res: Response) => {
         estimatedTime || null,
         0, // time_spent
         tags || null,
-        userId || null,
       ],
     );
 
@@ -169,7 +160,7 @@ export const updateTask = async (req: Request, res: Response) => {
         end_date as "endDate", 
         estimated_time as "estimatedTime", 
         time_spent as "timeSpent",
-        tags, user_id as "userId"`,
+        tags`,
       [
         title,
         description,

@@ -8,5 +8,9 @@ export interface Task {
   updatedAt: Date;
   order: number; // for drag-and-drop ordering
   dueDate?: Date; // optional due date for reminders
+  startDate?: Date;
+  endDate?: Date;
+  estimatedTime?: number;
+  timeSpent?: number;
   tags?: string[]; // optional tags for filtering
 }

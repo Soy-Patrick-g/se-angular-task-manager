@@ -3,7 +3,6 @@ import { HttpClient } from "@angular/common/http";
 import { BehaviorSubject, Observable, tap, catchError, of } from "rxjs";
 import { Task } from "../models/task.model";
 import { environment } from "../../environments/environment";
-import { AuthService } from "./auth.service";
 
 @Injectable({
   providedIn: "root",
@@ -13,22 +12,13 @@ export class TaskService {
   public tasks$ = this.tasksSubject.asObservable();
   private apiUrl = `${environment.apiUrl}/tasks`;
 
-  constructor(
-    private http: HttpClient,
-    private authService: AuthService,
-  ) {
+  constructor(private http: HttpClient) {
     this.loadTasks();
   }
 
   private loadTasks() {
-    const currentUser = this.authService.getCurrentUser();
-    if (!currentUser) {
-      this.tasksSubject.next([]);
-      return;
-    }
-
     this.http
-      .get<Task[]>(`${this.apiUrl}?userId=${currentUser.id}`)
+      .get<Task[]>(this.apiUrl)
       .pipe(
         tap((tasks) => this.tasksSubject.next(tasks)),
         catchError((error) => {
@@ -46,16 +36,8 @@ export class TaskService {
   addTask(
     task: Omit<Task, "id" | "createdAt" | "updatedAt" | "status" | "order">,
   ) {
-    const currentUser = this.authService.getCurrentUser();
-    if (!currentUser) {
-      console.error("No authenticated user");
-      return;
-    }
-
-    const taskWithUser = { ...task, userId: currentUser.id };
-
     this.http
-      .post<Task>(this.apiUrl, taskWithUser)
+      .post<Task>(this.apiUrl, task)
       .pipe(
         tap(() => this.loadTasks()),
         catchError((error) => {

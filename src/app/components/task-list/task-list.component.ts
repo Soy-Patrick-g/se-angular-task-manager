@@ -3,7 +3,6 @@ import { CommonModule } from "@angular/common";
 import { Observable, combineLatest, map } from "rxjs";
 import { Task } from "../../models/task.model";
 import { TaskService } from "../../services/task.service";
-import { AuthService } from "../../services/auth.service";
 import { TaskItemComponent } from "../task-item/task-item.component";
 import { TaskFormComponent } from "../task-form/task-form.component";
 import {
@@ -34,21 +33,13 @@ export class TaskListComponent implements OnInit {
 
   taskToEdit: Task | null = null;
 
-  constructor(
-    private taskService: TaskService,
-    private authService: AuthService,
-  ) {
+  constructor(private taskService: TaskService) {
     this.tasks$ = this.taskService.getTasks();
 
     // Subscribe to calculate progress
     this.tasks$.subscribe((tasks) => {
       this.totalTasks = tasks.length;
       this.completedTasks = tasks.filter((t) => t.status).length;
-    });
-
-    // Refresh tasks when user changes
-    this.authService.currentUser$.subscribe(() => {
-      this.taskService.refreshTasks();
     });
   }
 
