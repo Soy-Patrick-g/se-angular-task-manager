@@ -4,10 +4,11 @@ const initDatabase = async () => {
   try {
     console.log("🔄 Initializing database...");
 
-    // Create tasks table
+    // Create tasks table (with device_id for per-device isolation)
     const createTasksTableQuery = `
       CREATE TABLE IF NOT EXISTS tasks (
         id SERIAL PRIMARY KEY,
+        device_id VARCHAR(36) NOT NULL DEFAULT '',
         title VARCHAR(255) NOT NULL,
         description TEXT,
         priority VARCHAR(10) CHECK (priority IN ('low', 'medium', 'high')) DEFAULT 'medium',
@@ -26,6 +27,12 @@ const initDatabase = async () => {
     await pool.query(createTasksTableQuery);
     console.log("✅ Tasks table created successfully");
 
+    // Migration: safely add device_id column if it doesn't exist (for existing deployments)
+    await pool.query(`
+      ALTER TABLE tasks ADD COLUMN IF NOT EXISTS device_id VARCHAR(36) NOT NULL DEFAULT '';
+    `);
+    console.log("✅ Migration: device_id column ensured");
+
     // Create indexes for better performance
     await pool.query(
       "CREATE INDEX IF NOT EXISTS idx_tasks_status ON tasks(status);",
@@ -35,6 +42,9 @@ const initDatabase = async () => {
     );
     await pool.query(
       'CREATE INDEX IF NOT EXISTS idx_tasks_order ON tasks("order");',
+    );
+    await pool.query(
+      "CREATE INDEX IF NOT EXISTS idx_tasks_device_id ON tasks(device_id);",
     );
 
     console.log("✅ Indexes created successfully");

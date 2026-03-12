@@ -11,8 +11,9 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(
   cors({
-    origin: "http://localhost:4200", // Angular dev server
-    credentials: true,
+    origin: "*", // Allow all origins (Vercel + local dev)
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "X-Device-ID"],
   }),
 );
 app.use(express.json());

@@ -1,9 +1,21 @@
 import { Request, Response } from "express";
 import pool from "../config/database";
 
+// Helper to extract device_id from request header
+const getDeviceId = (req: Request): string => {
+  const deviceId = req.headers["x-device-id"];
+  return (Array.isArray(deviceId) ? deviceId[0] : deviceId) || "";
+};
+
 export const getAllTasks = async (req: Request, res: Response) => {
   try {
-    let query = `
+    const deviceId = getDeviceId(req);
+
+    if (!deviceId) {
+      return res.status(400).json({ error: "X-Device-ID header is required" });
+    }
+
+    const query = `
       SELECT 
         id, title, description, priority, status, 
         created_at as "createdAt", 
@@ -16,11 +28,11 @@ export const getAllTasks = async (req: Request, res: Response) => {
         time_spent as "timeSpent",
         tags
        FROM tasks 
+       WHERE device_id = $1
        ORDER BY "order" ASC, created_at DESC
     `;
-    const params: any[] = [];
 
-    const result = await pool.query(query, params);
+    const result = await pool.query(query, [deviceId]);
     res.json(result.rows);
   } catch (error) {
     console.error("Error fetching tasks:", error);
@@ -31,6 +43,12 @@ export const getAllTasks = async (req: Request, res: Response) => {
 export const getTaskById = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
+    const deviceId = getDeviceId(req);
+
+    if (!deviceId) {
+      return res.status(400).json({ error: "X-Device-ID header is required" });
+    }
+
     const result = await pool.query(
       `SELECT 
         id, title, description, priority, status, 
@@ -43,8 +61,8 @@ export const getTaskById = async (req: Request, res: Response) => {
         estimated_time as "estimatedTime", 
         time_spent as "timeSpent",
         tags
-       FROM tasks WHERE id = $1`,
-      [id],
+       FROM tasks WHERE id = $1 AND device_id = $2`,
+      [id, deviceId],
     );
 
     if (result.rows.length === 0) {
@@ -60,6 +78,12 @@ export const getTaskById = async (req: Request, res: Response) => {
 
 export const createTask = async (req: Request, res: Response) => {
   try {
+    const deviceId = getDeviceId(req);
+
+    if (!deviceId) {
+      return res.status(400).json({ error: "X-Device-ID header is required" });
+    }
+
     const {
       title,
       description,
@@ -75,17 +99,18 @@ export const createTask = async (req: Request, res: Response) => {
       return res.status(400).json({ error: "Title is required" });
     }
 
-    // Get current max order
+    // Get current max order for this device
     const orderResult = await pool.query(
-      'SELECT COALESCE(MAX("order"), -1) + 1 as next_order FROM tasks',
+      'SELECT COALESCE(MAX("order"), -1) + 1 as next_order FROM tasks WHERE device_id = $1',
+      [deviceId],
     );
     const nextOrder = orderResult.rows[0].next_order;
 
     const result = await pool.query(
       `INSERT INTO tasks (
-        title, description, priority, "order", due_date, start_date, end_date, estimated_time, time_spent, tags
+        device_id, title, description, priority, "order", due_date, start_date, end_date, estimated_time, time_spent, tags
        ) 
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) 
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) 
        RETURNING 
         id, title, description, priority, status, 
         created_at as "createdAt", 
@@ -98,6 +123,7 @@ export const createTask = async (req: Request, res: Response) => {
         time_spent as "timeSpent",
         tags`,
       [
+        deviceId,
         title,
         description || "",
         priority || "medium",
@@ -121,6 +147,12 @@ export const createTask = async (req: Request, res: Response) => {
 export const updateTask = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
+    const deviceId = getDeviceId(req);
+
+    if (!deviceId) {
+      return res.status(400).json({ error: "X-Device-ID header is required" });
+    }
+
     const {
       title,
       description,
@@ -149,7 +181,7 @@ export const updateTask = async (req: Request, res: Response) => {
            time_spent = COALESCE($10, time_spent),
            tags = COALESCE($11, tags),
            updated_at = CURRENT_TIMESTAMP
-       WHERE id = $12
+       WHERE id = $12 AND device_id = $13
        RETURNING 
         id, title, description, priority, status, 
         created_at as "createdAt", 
@@ -174,6 +206,7 @@ export const updateTask = async (req: Request, res: Response) => {
         timeSpent,
         tags,
         id,
+        deviceId,
       ],
     );
 
@@ -191,9 +224,15 @@ export const updateTask = async (req: Request, res: Response) => {
 export const deleteTask = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
+    const deviceId = getDeviceId(req);
+
+    if (!deviceId) {
+      return res.status(400).json({ error: "X-Device-ID header is required" });
+    }
+
     const result = await pool.query(
-      "DELETE FROM tasks WHERE id = $1 RETURNING *",
-      [id],
+      "DELETE FROM tasks WHERE id = $1 AND device_id = $2 RETURNING *",
+      [id, deviceId],
     );
 
     if (result.rows.length === 0) {

@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { BehaviorSubject, Observable, tap, catchError, of } from "rxjs";
 import { Task } from "../models/task.model";
 import { environment } from "../../environments/environment";
@@ -16,9 +16,36 @@ export class TaskService {
     this.loadTasks();
   }
 
+  /** Returns the device-unique ID, creating one on first visit. */
+  private getDeviceId(): string {
+    const KEY = "task_manager_device_id";
+    let id = localStorage.getItem(KEY);
+    if (!id) {
+      // Generate a UUID v4
+      id = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+        /[xy]/g,
+        (c) => {
+          const r = (Math.random() * 16) | 0;
+          const v = c === "x" ? r : (r & 0x3) | 0x8;
+          return v.toString(16);
+        },
+      );
+      localStorage.setItem(KEY, id);
+    }
+    return id;
+  }
+
+  /** Returns HTTP headers including the device identifier. */
+  private getHeaders(): HttpHeaders {
+    return new HttpHeaders({
+      "Content-Type": "application/json",
+      "X-Device-ID": this.getDeviceId(),
+    });
+  }
+
   private loadTasks() {
     this.http
-      .get<Task[]>(this.apiUrl)
+      .get<Task[]>(this.apiUrl, { headers: this.getHeaders() })
       .pipe(
         tap((tasks) => this.tasksSubject.next(tasks)),
         catchError((error) => {
@@ -37,7 +64,7 @@ export class TaskService {
     task: Omit<Task, "id" | "createdAt" | "updatedAt" | "status" | "order">,
   ) {
     this.http
-      .post<Task>(this.apiUrl, task)
+      .post<Task>(this.apiUrl, task, { headers: this.getHeaders() })
       .pipe(
         tap(() => this.loadTasks()),
         catchError((error) => {
@@ -50,7 +77,7 @@ export class TaskService {
 
   updateTask(id: number, changes: Partial<Task>) {
     this.http
-      .put<Task>(`${this.apiUrl}/${id}`, changes)
+      .put<Task>(`${this.apiUrl}/${id}`, changes, { headers: this.getHeaders() })
       .pipe(
         tap(() => this.loadTasks()),
         catchError((error) => {
@@ -63,7 +90,7 @@ export class TaskService {
 
   deleteTask(id: number) {
     this.http
-      .delete(`${this.apiUrl}/${id}`)
+      .delete(`${this.apiUrl}/${id}`, { headers: this.getHeaders() })
       .pipe(
         tap(() => this.loadTasks()),
         catchError((error) => {
@@ -89,7 +116,11 @@ export class TaskService {
     // Update order for all tasks
     const updates = tasks.map((task, index) =>
       this.http
-        .put<Task>(`${this.apiUrl}/${task.id}`, { order: index })
+        .put<Task>(
+          `${this.apiUrl}/${task.id}`,
+          { order: index },
+          { headers: this.getHeaders() },
+        )
         .toPromise(),
     );
 
