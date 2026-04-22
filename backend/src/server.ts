@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import taskRoutes from "./routes/tasks";
+import { ensureTaskSchema } from "./config/ensureTaskSchema";
 
 dotenv.config();
 
@@ -52,9 +53,20 @@ app.use((req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-  console.log(`📊 API available at http://localhost:${PORT}/api`);
-});
+const startServer = async () => {
+  try {
+    await ensureTaskSchema();
+
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running on http://localhost:${PORT}`);
+      console.log(`📊 API available at http://localhost:${PORT}/api`);
+    });
+  } catch (error) {
+    console.error("❌ Failed to start server:", error);
+    process.exit(1);
+  }
+};
+
+void startServer();
 
 export default app;

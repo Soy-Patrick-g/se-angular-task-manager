@@ -1,10 +1,40 @@
 import { Request, Response } from "express";
 import pool from "../config/database";
 
+const statusSelectSql = `
+  CASE
+    WHEN LOWER(COALESCE(status::text, '')) IN ('done', 'completed', 'true', 't', '1')
+      THEN true
+    ELSE false
+  END as "status"
+`;
+
 // Helper to extract device_id from request header
 const getDeviceId = (req: Request): string => {
   const deviceId = req.headers["x-device-id"];
   return (Array.isArray(deviceId) ? deviceId[0] : deviceId) || "";
+};
+
+const normalizeStatusForDb = (status: unknown): string | null => {
+  if (typeof status === "boolean") {
+    return status ? "done" : "todo";
+  }
+
+  if (typeof status !== "string") {
+    return null;
+  }
+
+  const normalized = status.trim().toLowerCase();
+
+  if (["done", "completed", "true", "t", "1"].includes(normalized)) {
+    return "done";
+  }
+
+  if (["todo", "active", "pending", "false", "f", "0"].includes(normalized)) {
+    return "todo";
+  }
+
+  return normalized || null;
 };
 
 export const getAllTasks = async (req: Request, res: Response) => {
@@ -17,7 +47,7 @@ export const getAllTasks = async (req: Request, res: Response) => {
 
     const query = `
       SELECT 
-        id, title, description, priority, status, 
+        id, title, description, priority, ${statusSelectSql},
         created_at as "createdAt", 
         updated_at as "updatedAt", 
         "order", 
@@ -51,7 +81,7 @@ export const getTaskById = async (req: Request, res: Response) => {
 
     const result = await pool.query(
       `SELECT 
-        id, title, description, priority, status, 
+        id, title, description, priority, ${statusSelectSql},
         created_at as "createdAt", 
         updated_at as "updatedAt", 
         "order", 
@@ -166,6 +196,7 @@ export const updateTask = async (req: Request, res: Response) => {
       timeSpent,
       tags,
     } = req.body;
+    const normalizedStatus = normalizeStatusForDb(status);
 
     const result = await pool.query(
       `UPDATE tasks 
@@ -197,7 +228,7 @@ export const updateTask = async (req: Request, res: Response) => {
         title,
         description,
         priority,
-        status,
+        normalizedStatus,
         order,
         dueDate,
         startDate,

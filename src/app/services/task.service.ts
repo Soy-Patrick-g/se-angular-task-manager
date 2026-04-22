@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { BehaviorSubject, Observable, tap, catchError, of } from "rxjs";
+import { BehaviorSubject, Observable, tap, catchError, of, map } from "rxjs";
 import { Task } from "../models/task.model";
 import { environment } from "../../environments/environment";
 
@@ -103,7 +103,7 @@ export class TaskService {
 
   filterTasks(status: "all" | "active" | "completed"): Observable<Task[]> {
     return this.tasks$.pipe(
-      tap((tasks) => {
+      map((tasks) => {
         if (status === "all") return tasks;
         if (status === "active") return tasks.filter((t: Task) => !t.status);
         if (status === "completed") return tasks.filter((t: Task) => t.status);
