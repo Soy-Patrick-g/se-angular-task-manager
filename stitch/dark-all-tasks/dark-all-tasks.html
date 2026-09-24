@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary":"#003738","on-tertiary-fixed":"#271900","secondary-container":"#00d3d8","on-primary":"#29059c","surface-variant":"#323445","on-primary-fixed":"#170065","surface-dim":"#101222","tertiary-fixed-dim":"#f9bc48","secondary-fixed-dim":"#23dbe1","surface-bright":"#36384a","background":"#0E1020","on-secondary-container":"#005658","on-surface":"#F1F3FF","on-background":"#e1e1f8","secondary-fixed":"#54f8fd","on-secondary-fixed":"#002021","primary-fixed":"#e4dfff","primary-container":"#8B7DFF","on-surface-variant":"#9AA1C0","surface-container":"#1c1e2f","on-primary-container":"#23008d","tertiary-container":"#bc870f","error":"#ffb4ab","on-tertiary-container":"#392600","on-error-container":"#ffdad6","on-primary-fixed-variant":"#412eb1","tertiary":"#f9bc48","inverse-on-surface":"#2d2f41","inverse-primary":"#5a4aca","on-secondary-fixed-variant":"#004f51","surface-tint":"#c7bfff","surface-container-high":"#27293a","outline":"#928f9f","primary":"#c7bfff","surface-container-highest":"#323445","error-container":"#93000a","surface-container-lowest":"#0b0d1d","on-tertiary":"#422c00","primary-fixed-dim":"#c7bfff","surface-container-low":"#181a2b","outline-variant":"#474553","tertiary-fixed":"#ffdea9","on-error":"#690005","inverse-surface":"#e1e1f8","on-tertiary-fixed-variant":"#5e4100","secondary":"#48f0f5","surface":"#0E1020"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-sm":"0.75rem","space-2xs":"0.25rem","margin-md":"1.5rem",gutter:"1rem","space-md":"1rem","gutter-lg":"1.5rem","margin-lg":"2rem","space-xs":"0.5rem","space-lg":"1.5rem",margin:"1rem","space-xl":"2rem","space-2xl":"3rem"},fontFamily:{"label-sm":["Inter"],"body-md-semibold":["Inter"],"label-xs":["Inter"],caption":["Inter"],"headline-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-lg-medium":["Inter"],"headline-xl-mobile":["Plus Jakarta Sans"],"body-md":["Inter"],"body-lg":["Inter"],"body-md-medium":["Inter"],"headline-xl":["Plus Jakarta Sans"]},fontSize:{"label-sm":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"500"}],"body-md-semibold":["14px",{lineHeight:"20px",fontWeight:"600"}],"label-xs":["11px",{lineHeight:"14px",letterSpacing:"0.02em",fontWeight:"600"}],caption":["12px",{lineHeight:"16px",fontWeight:"400"}],"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg-medium":["16px",{lineHeight:"24px",fontWeight:"500"}],"headline-xl-mobile":["26px",{lineHeight:"34px",letterSpacing:"-0.015em",fontWeight:"700"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"body-md-medium":["14px",{lineHeight:"20px",fontWeight:"500"}],"headline-xl":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}]}}}}</script></head><body class="bg-[#0E1020] font-body-md text-[#F1F3FF] antialiased"><aside class="fixed left-0 top-0 h-screen w-60 bg-[#131627] border-r border-[#2A2F52] z-40 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center justify-between border-b border-[#2A2F52]"><div class="flex items-center gap-space-xs"><img alt="TaskFlow Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Ufqm6NCrApd5FRjuBDvK1xE5Ug253FUzj-96GPQKOMA9_CkGZiNRoN1vjuzNzcvWejWCY82PTGZe4we4k0W_Sb6-0_zoftdJ642xqPeEqgWhEtiERF5suN26GRslqyLiVXoZuoaHYTsW70alujOGMLsd-DIpQRvATjBtvCqpfh2yGlRnkhmBpsJlNDJjzQIf-Yq1ze-1C10INY5bqYIp476HkTJuHRGGo9efBRtE__djYncXnbLdpJxZsA"/><span class="font-headline-md text-headline-md text-[#F1F3FF] tracking-tight font-bold">TaskFlow</span></div><span class="px-space-2xs py-0.5 rounded-lg bg-[#1E233E] text-[#9AA1C0] font-label-xs text-label-xs">v1.0</span></div><div class="p-space-xs"><div class="px-space-xs py-space-2xs font-label-xs text-label-xs text-[#9AA1C0]/70 uppercase tracking-wider">Views</div><nav class="space-y-0.5 mt-space-2xs" data-active-classes="bg-[#1E233E] text-[#F1F3FF] font-semibold"><a class="flex items-center justify-between px-space-xs py-1.5 rounded-lg font-body-md text-body-md text-[#9AA1C0] hover:bg-[#1E233E] hover:text-[#F1F3FF] transition-colors" data-path="today" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px]">wb_sunny</span><span>Today</span></div><span class="px-1.5 py-0.5 rounded-full bg-[#1E233E] text-[#9AA1C0] font-label-xs text-label-xs">5</span></a><a aria-current="page" class="flex items-center justify-between px-space-xs py-1.5 rounded-lg transition-colors bg-[#1E233E] text-[#F1F3FF] font-semibold" data-path="all-tasks" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px]">checklist</span><span>All Tasks</span></div><span class="px-1.5 py-0.5 rounded-full bg-[#2A2F52] text-[#F1F3FF] font-label-xs text-label-xs">14</span></a><a class="flex items-center justify-between px-space-xs py-1.5 rounded-lg font-body-md text-body-md text-[#9AA1C0] hover:bg-[#1E233E] hover:text-[#F1F3FF] transition-colors" data-path="board" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px]">view_kanban</span><span>Board</span></div></a><a class="flex items-center justify-between px-space-xs py-1.5 rounded-lg font-body-md text-body-md text-[#9AA1C0] hover:bg-[#1E233E] hover:text-[#F1F3FF] transition-colors" data-path="calendar" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px]">calendar_today</span><span>Calendar</span></div></a><a class="flex items-center justify-between px-space-xs py-1.5 rounded-lg font-body-md text-body-md text-[#9AA1C0] hover:bg-[#1E233E] hover:text-[#F1F3FF] transition-colors" data-path="habits" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px]">local_fire_department</span><span>Habits</span></div></a></nav></div><div class="p-space-xs mt-space-2xs"><div class="px-space-xs py-space-2xs font-label-xs text-label-xs text-[#9AA1C0]/70 uppercase tracking-wider flex items-center justify-between"><span>Projects</span><span class="material-symbols-outlined text-[16px] text-[#9AA1C0] hover:text-[#F1F3FF] cursor-pointer">add</span></div><div class="space-y-0.5 mt-space-2xs"><a class="flex items-center gap-space-xs px-space-xs py-1.5 rounded-lg font-body-md text-body-md text-[#9AA1C0] hover:bg-[#1E233E] hover:text-[#F1F3FF] transition-colors" data-path="school" href="#"><span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim ring-2 ring-tertiary-fixed-dim/20"></span><span>School</span></a><a class="flex items-center gap-space-xs px-space-xs py-1.5 rounded-lg font-body-md text-body-md text-[#9AA1C0] hover:bg-[#1E233E] hover:text-[#F1F3FF] transition-colors" data-path="choir" href="#"><span class="w-2 h-2 rounded-full bg-secondary-fixed-dim ring-2 ring-secondary-fixed-dim/20"></span><span>Choir</span></a><a class="flex items-center gap-space-xs px-space-xs py-1.5 rounded-lg font-body-md text-body-md text-[#9AA1C0] hover:bg-[#1E233E] hover:text-[#F1F3FF] transition-colors" data-path="coding" href="#"><span class="w-2 h-2 rounded-full bg-primary-container ring-2 ring-primary-container/20"></span><span>Coding</span></a><a class="flex items-center gap-space-xs px-space-xs py-1.5 rounded-lg font-body-md text-body-md text-[#9AA1C0] hover:bg-[#1E233E] hover:text-[#F1F3FF] transition-colors" data-path="personal" href="#"><span class="w-2 h-2 rounded-full bg-secondary ring-2 ring-secondary/20"></span><span>Personal</span></a></div></div></div><div class="p-space-xs border-t border-[#2A2F52]"><div class="flex items-center justify-between px-space-xs py-1.5 mb-1"><span class="font-label-sm text-label-sm text-[#9AA1C0]">Theme</span><button class="flex items-center p-1 rounded-lg bg-[#1E233E] text-[#8B7DFF] hover:text-[#F1F3FF] transition-colors" title="Dark theme active" type="button"><span class="material-symbols-outlined text-[16px]">dark_mode</span></button></div><a class="flex items-center gap-space-xs px-space-xs py-1.5 rounded-lg font-body-md text-body-md text-[#9AA1C0] hover:bg-[#1E233E] hover:text-[#F1F3FF] transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Settings</span></a></div></aside><div class="pl-60 min-h-screen flex flex-col bg-[#0E1020]"><header class="fixed top-0 left-60 right-0 h-16 bg-[#131627]/90 backdrop-blur-xl border-b border-[#2A2F52] z-30 flex items-center justify-between px-space-xl"><div class="flex items-center flex-1 max-w-md"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-[18px] text-[#9AA1C0] pointer-events-none">search</span><input class="w-full pl-9 pr-14 py-1.5 rounded-xl border border-[#2A2F52] bg-[#171A2E] font-body-md text-body-md text-[#F1F3FF] placeholder:text-[#9AA1C0]/60 focus:outline-none focus:border-[#8B7DFF] focus:ring-1 focus:ring-[#8B7DFF] transition-all" placeholder="Search tasks, labels, notes..." type="text"/><span class="absolute right-2 px-1.5 py-0.5 rounded border border-[#2A2F52] font-label-xs text-label-xs text-[#9AA1C0] bg-[#131627] pointer-events-none">⌘K</span></div></div><div class="flex items-center gap-space-md"><button class="flex items-center gap-space-xs px-space-sm py-2 rounded-xl bg-gradient-to-r from-[#6C5CE7] to-[#00C2C7] text-white font-body-md-semibold text-body-md-semibold shadow-[0_2px_8px_rgba(108,92,231,0.35)] hover:opacity-95 active:scale-[0.98] transition-all" type="button"><span class="material-symbols-outlined text-[18px]">add</span><span>New task</span></button><div class="relative flex items-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-[#2A2F52]" src="https://lh3.googleusercontent.com/aida/AEtjO1UbQWToCyBUSE1at2bLrIbJv1Y4VBtTchpM_zdkSi5KCNttNEEJnpkN9cSheWPT1Lq0UKn-5dOCGKHgZJZfCSY2Oa9aZNsJiEpiNXM6c6eIVMUsbReTFTGPYYcang-PxK9aoatGCzR4YU6M7MQewbLaiY0lUuzZz3Vr8FB17Z6da9SCX-sjlRDq5sF0gb9mGcF7UusDY-LvqBgkt5gMHBUxNKgl--V6fuuUS6lhll7PYcN_xbImRJlWxiY"/><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-[#131627]"></span></div></div></header><main class="flex-1 pt-16 bg-[#0E1020]"><div class="max-w-[1100px] mx-auto px-space-xl py-space-xl"><div class="flex flex-col w-full relative pb-28">
+<div class="flex flex-col gap-space-md mb-space-lg">
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="p-2 rounded-xl bg-[#8B7DFF]/20 text-[#8B7DFF] border border-[#8B7DFF]/30 shadow-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">checklist</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<h1 class="font-headline-lg text-headline-lg text-[#F1F3FF] tracking-tight font-bold">All Tasks</h1>
+<span class="px-space-xs py-0.5 rounded-full bg-[#1E233E] text-[#9AA1C0] border border-[#2A2F52] font-label-xs text-label-xs font-semibold" id="total-count-badge">14 tasks</span>
+</div>
+<p class="font-caption text-caption text-[#9AA1C0]">Review, prioritize, and manage cross-project deliverable milestones.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="flex items-center p-1 rounded-xl bg-[#171A2E] border border-[#2A2F52]">
+<button class="px-2.5 py-1.5 rounded-lg bg-[#222846] text-[#8B7DFF] shadow-sm font-label-sm text-label-sm flex items-center gap-1 transition-all" title="List View" type="button">
+<span class="material-symbols-outlined text-[16px]">format_list_bulleted</span>
+<span>List</span>
+</button>
+<button class="px-2.5 py-1.5 rounded-lg text-[#9AA1C0] hover:text-[#F1F3FF] font-label-sm text-label-sm flex items-center gap-1 transition-colors" title="Board View" type="button">
+<span class="material-symbols-outlined text-[16px]">view_kanban</span>
+<span class="hidden sm:inline">Board</span>
+</button>
+<button class="px-2.5 py-1.5 rounded-lg text-[#9AA1C0] hover:text-[#F1F3FF] font-label-sm text-label-sm flex items-center gap-1 transition-colors" title="Calendar View" type="button">
+<span class="material-symbols-outlined text-[16px]">calendar_month</span>
+<span class="hidden sm:inline">Calendar</span>
+</button>
+</div>
+<div class="relative group">
+<button class="flex items-center gap-space-xs px-3 py-2 rounded-xl bg-[#171A2E] border border-[#2A2F52] text-[#F1F3FF] font-label-sm text-label-sm hover:bg-[#1E233E] transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-[#9AA1C0]">tune</span>
+<span>Group by: <strong class="font-semibold text-[#F1F3FF]">Status</strong></span>
+<span class="material-symbols-outlined text-[16px] text-[#9AA1C0]">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-sm pt-space-xs">
+<div class="relative w-full lg:w-80 flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-[18px] text-[#9AA1C0] pointer-events-none">search</span>
+<input class="w-full pl-9 pr-4 py-2 rounded-xl bg-[#171A2E] border border-[#2A2F52] text-[#F1F3FF] placeholder:text-[#9AA1C0]/60 font-body-md text-body-md focus:bg-[#1E233E] focus:border-[#8B7DFF] focus:ring-1 focus:ring-[#8B7DFF] outline-none transition-all" id="task-filter-input" placeholder="Filter tasks by name or key..." type="text"/>
+</div>
+<div class="flex flex-wrap items-center gap-1.5">
+<button class="filter-chip active px-3 py-1.5 rounded-lg bg-[#8B7DFF] text-white font-label-sm text-label-sm font-semibold transition-all shadow-sm" type="button">All</button>
+<button class="filter-chip px-3 py-1.5 rounded-lg bg-[#171A2E] border border-[#2A2F52] text-[#9AA1C0] hover:text-[#F1F3FF] hover:border-[#8B7DFF]/50 font-label-sm text-label-sm transition-all flex items-center gap-1.5" type="button">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+<span>School</span>
+<span class="text-[#9AA1C0]/60 font-label-xs">3</span>
+</button>
+<button class="filter-chip px-3 py-1.5 rounded-lg bg-[#171A2E] border border-[#2A2F52] text-[#9AA1C0] hover:text-[#F1F3FF] hover:border-[#8B7DFF]/50 font-label-sm text-label-sm transition-all flex items-center gap-1.5" type="button">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed-dim"></span>
+<span>Choir</span>
+<span class="text-[#9AA1C0]/60 font-label-xs">2</span>
+</button>
+<button class="filter-chip px-3 py-1.5 rounded-lg bg-[#171A2E] border border-[#2A2F52] text-[#9AA1C0] hover:text-[#F1F3FF] hover:border-[#8B7DFF]/50 font-label-sm text-label-sm transition-all flex items-center gap-1.5" type="button">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span>Coding</span>
+<span class="text-[#9AA1C0]/60 font-label-xs">5</span>
+</button>
+<button class="filter-chip px-3 py-1.5 rounded-lg bg-[#171A2E] border border-[#2A2F52] text-[#9AA1C0] hover:text-[#F1F3FF] hover:border-[#8B7DFF]/50 font-label-sm text-label-sm transition-all flex items-center gap-1.5" type="button">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Personal</span>
+<span class="text-[#9AA1C0]/60 font-label-xs">4</span>
+</button>
+<button class="px-2.5 py-1.5 rounded-lg bg-[#171A2E] border border-[#2A2F52] text-[#9AA1C0] hover:text-[#F1F3FF] font-label-sm text-label-sm transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Filter by Priority</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-[#171A2E] border border-[#2A2F52] rounded-2xl shadow-xl overflow-hidden">
+<div class="grid grid-cols-[40px_32px_1fr_130px_110px_130px_110px_48px] items-center px-space-md py-3 bg-[#131627] text-[#9AA1C0] border-b border-[#2A2F52] font-label-xs text-label-xs uppercase tracking-wider select-none">
+<div class="flex items-center justify-center">
+<input class="w-4 h-4 rounded text-[#8B7DFF] focus:ring-0 cursor-pointer accent-[#8B7DFF] bg-[#1E233E] border-[#2A2F52]" id="select-all-checkbox" type="checkbox"/>
+</div>
+<div></div>
+<div>Task Title</div>
+<div>Status</div>
+<div>Priority</div>
+<div>Due Date</div>
+<div>Project</div>
+<div class="text-right pr-2">Actions</div>
+</div>
+<div class="divide-y divide-[#222744]" id="task-list-container">
+<div class="task-row group bg-[#171A2E] hover:bg-[#1E233E] transition-colors" data-id="1">
+<div class="grid grid-cols-[40px_32px_1fr_130px_110px_130px_110px_48px] items-center px-space-md py-2.5">
+<div class="flex items-center justify-center">
+<input checked="" class="task-select-check w-4 h-4 rounded cursor-pointer accent-[#8B7DFF] bg-[#1E233E] border-[#2A2F52]" type="checkbox"/>
+</div>
+<div class="flex items-center justify-center text-[#9AA1C0]/40 group-hover:text-[#9AA1C0] cursor-grab">
+<span class="material-symbols-outlined text-[18px]">drag_indicator</span>
+</div>
+<div class="flex items-center gap-space-xs min-w-0 pr-2">
+<button class="toggle-expand-btn text-[#9AA1C0] hover:text-[#F1F3FF] p-0.5 rounded transition-transform duration-200" type="button">
+<span class="material-symbols-outlined text-[18px] transition-transform duration-200 rotate-90">chevron_right</span>
+</button>
+<input class="task-complete-check w-4 h-4 rounded cursor-pointer accent-[#8B7DFF] bg-[#1E233E] border-[#2A2F52]" type="checkbox"/>
+<input class="task-title-input font-body-md-semibold text-body-md-semibold text-[#F1F3FF] bg-transparent hover:bg-[#222744] focus:bg-[#131627] focus:ring-1 focus:ring-[#8B7DFF]/50 px-2 py-0.5 rounded-lg outline-none w-full truncate transition-all" type="text" value="Finish Embedded Systems lab report"/>
+</div>
+<div>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-xs text-label-xs font-semibold bg-[#1B2A4A] text-[#60A5FA]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#60A5FA] animate-pulse"></span>
+              In Progress
+            </span>
+</div>
+<div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md font-label-sm text-label-sm bg-[#3B1C22] text-[#F87171] font-medium">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">flag</span>
+<span>High</span>
+</span>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-[#F87171] font-medium">
+<span class="material-symbols-outlined text-[15px]">event_busy</span>
+<span>Oct 23 (Overdue)</span>
+</div>
+<div>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-tertiary-fixed/15 text-tertiary-fixed-dim font-label-xs text-label-xs font-medium border border-tertiary-fixed/20">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>
+              School
+            </span>
+</div>
+<div class="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded-lg text-[#9AA1C0] hover:text-[#F1F3FF] hover:bg-[#222744]" title="Subtasks" type="button">
+<span class="material-symbols-outlined text-[16px]">account_tree</span>
+</button>
+<button class="p-1 rounded-lg text-[#9AA1C0] hover:text-[#F87171] hover:bg-[#3B1C22]" title="Delete" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+<div class="subtasks-container pl-16 pr-space-xl pb-3.5 pt-1">
+<div class="bg-[#131627] border border-[#2A2F52] rounded-xl p-3 flex flex-col gap-2">
+<div class="flex items-center justify-between text-[#9AA1C0] font-label-xs text-label-xs uppercase tracking-wider px-1">
+<span>Subtasks Progress (3/4 complete)</span>
+<span class="font-semibold text-[#8B7DFF]">75%</span>
+</div>
+<div class="w-full bg-[#232845] rounded-full h-1.5 overflow-hidden">
+<div class="bg-gradient-to-r from-[#8B7DFF] to-[#2DE0E5] h-1.5 rounded-full" style="width: 75%"></div>
+</div>
+<div class="space-y-1.5 pt-1 font-body-md text-body-md text-[#F1F3FF]">
+<label class="flex items-center gap-2 cursor-pointer text-[#9AA1C0] line-through text-sm">
+<input checked="" class="w-3.5 h-3.5 accent-[#8B7DFF] rounded bg-[#1E233E] border-[#2A2F52]" type="checkbox"/>
+<span>Review oscilloscope measurements</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer text-[#9AA1C0] line-through text-sm">
+<input checked="" class="w-3.5 h-3.5 accent-[#8B7DFF] rounded bg-[#1E233E] border-[#2A2F52]" type="checkbox"/>
+<span>Draft hardware schematic diagram</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer text-[#9AA1C0] line-through text-sm">
+<input checked="" class="w-3.5 h-3.5 accent-[#8B7DFF] rounded bg-[#1E233E] border-[#2A2F52]" type="checkbox"/>
+<span>Write methodology section</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer text-[#F1F3FF] text-sm font-medium">
+<input class="w-3.5 h-3.5 accent-[#8B7DFF] rounded bg-[#1E233E] border-[#2A2F52]" type="checkbox"/>
+<span>Final proofread and PDF export</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+<div class="task-row group bg-[#171A2E] hover:bg-[#1E233E] transition-colors" data-id="2">
+<div class="grid grid-cols-[40px_32px_1fr_130px_110px_130px_110px_48px] items-center px-space-md py-2.5">
+<div class="flex items-center justify-center">
+<input checked="" class="task-select-check w-4 h-4 rounded cursor-pointer accent-[#8B7DFF] bg-[#1E233E] border-[#2A2F52]" type="checkbox"/>
+</div>
+<div class="flex items-center justify-center text-[#9AA1C0]/40 group-hover:text-[#9AA1C0] cursor-grab">
+<span class="material-symbols-outlined text-[18px]">drag_indicator</span>
+</div>
+<div class="flex items-center gap-space-xs min-w-0 pr-2">
+<span class="w-5"></span>
+<input checked="" class="task-complete-check w-4 h-4 rounded cursor-pointer accent-[#8B7DFF] bg-[#1E233E] border-[#2A2F52]" type="checkbox"/>
+<input class="task-title-input line-through text-[#9AA1C0] font-body-md-semibold text-body-md-semibold bg-transparent hover:bg-[#222744] focus:bg-[#131627] focus:ring-1 focus:ring-[#8B7DFF]/50 px-2 py-0.5 rounded-lg outline-none w-full truncate transition-all duration-200" type="text" value="Push Angular task manager update"/>
+</div>
+<div>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-xs text-label-xs font-semibold bg-[#142E25] text-[#4ADE80]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#4ADE80]"></span>
+              Done
+            </span>
+</div>
+<div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md font-label-sm text-label-sm bg-[#451A22] text-[#F87171] font-medium">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">flag</span>
+<span>Urgent</span>
+</span>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-[#9AA1C0]">
+<span class="material-symbols-outlined text-[15px] text-[#9AA1C0]">calendar_today</span>
+<span>Oct 24</span>
+</div>
+<div>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#8B7DFF]/15 text-[#c7bfff] font-label-xs text-label-xs font-medium border border-[#8B7DFF]/20">
+<span class="w-1.5 h-1.5 rounded-full bg-[#8B7DFF]"></span>
+              Coding
+            </span>
+</div>
+<div class="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded-lg text-[#9AA1C0] hover:text-[#F1F3FF] hover:bg-[#222744]" title="Edit" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+<button class="p-1 rounded-lg text-[#9AA1C0] hover:text-[#F87171] hover:bg-[#3B1C22]" title="Delete" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<div class="task-row group bg-[#171A2E] hover:bg-[#1E233E] transition-colors" data-id="3">
+<div class="grid grid-cols-[40px_32px_1fr_130px_110px_130px_110px_48px] items-center px-space-md py-2.5">
+<div class="flex items-center justify-center">
+<input class="task-select-check w-4 h-4 rounded cursor-pointer accent-[#8B7DFF] bg-[#1E233E] border-[#2A2F52]" type="checkbox"/>
+</div>
+<div class="flex items-center justify-center text-[#9AA1C0]/40 group-hover:text-[#9AA1C0] cursor-grab">
+<span class="material-symbols-outlined text-[18px]">drag_indicator</span>
+</div>
+<div class="flex items-center gap-space-xs min-w-0 pr-2">
+<span class="w-5"></span>
+<input class="task-complete-check w-4 h-4 rounded cursor-pointer accent-[#8B7DFF] bg-[#1E233E] border-[#2A2F52]" type="checkbox"/>
+<input class="task-title-input font-body-md-semibold text-body-md-semibold text-[#F1F3FF] bg-transparent hover:bg-[#222744] focus:bg-[#131627] focus:ring-1 focus:ring-[#8B7DFF]/50 px-2 py-0.5 rounded-lg outline-none w-full truncate transition-all duration-200" type="text" value="Rehearse Echoes of Praise set list"/>
+</div>
+<div>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-xs text-label-xs font-semibold bg-[#1E2235] text-[#94A3B8]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#94A3B8]"></span>
+              To Do
+            </span>
+</div>
+<div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md font-label-sm text-label-sm bg-[#332616] text-[#FBBF24] font-medium">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">flag</span>
+<span>Medium</span>
+</span>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-[#9AA1C0]">
+<span class="material-symbols-outlined text-[15px] text-[#9AA1C0]">schedule</span>
+<span>Tomorrow</span>
+</div>
+<div>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#23dbe1]/15 text-[#23dbe1] font-label-xs text-label-xs font-medium border border-[#23dbe1]/20">
+<span class="w-1.5 h-1.5 rounded-full bg-[#23dbe1]"></span>
+              Choir
+            </span>
+</div>
+<div class="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded-lg text-[#9AA1C0] hover:text-[#F1F3FF] hover:bg-[#222744]" title="Edit" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+<button class="p-1 rounded-lg text-[#9AA1C0] hover:text-[#F87171] hover:bg-[#3B1C22]" title="Delete" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<div class="task-row group bg-[#171A2E] hover:bg-[#1E233E] transition-colors" data-id="4">
+<div class="grid grid-cols-[40px_32px_1fr_130px_110px_130px_110px_48px] items-center px-space-md py-2.5">
+<div class="flex items-center justify-center">
+<input class="task-select-check w-4 h-4 rounded cursor-pointer accent-[#8B7DFF] bg-[#1E233E] border-[#2A2F52]" type="checkbox"/>
+</div>
+<div class="flex items-center justify-center text-[#9AA1C0]/40 group-hover:text-[#9AA1C0] cursor-grab">
+<span class="material-symbols-outlined text-[18px]">drag_indicator</span>
+</div>
+<div class="flex items-center gap-space-xs min-w-0 pr-2">
+<span class="w-5"></span>
+<input class="task-complete-check w-4 h-4 rounded cursor-pointer accent-[#8B7DFF] bg-[#1E233E] border-[#2A2F52]" type="checkbox"/>
+<input class="task-title-input font-body-md-semibold text-body-md-semibold text-[#F1F3FF] bg-transparent hover:bg-[#222744] focus:bg-[#131627] focus:ring-1 focus:ring-[#8B7DFF]/50 px-2 py-0.5 rounded-lg outline-none w-full truncate transition-all duration-200" type="text" value="Review LSP meeting agenda"/>
+</div>
+<div>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-xs text-label-xs font-semibold bg-[#332616] text-[#FBBF24]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#FBBF24]"></span>
+              Review
+            </span>
+</div>
+<div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md font-label-sm text-label-sm bg-[#132B3A] text-[#38BDF8] font-medium">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">flag</span>
+<span>Low</span>
+</span>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-[#9AA1C0]">
+<span class="material-symbols-outlined text-[15px] text-[#9AA1C0]">calendar_today</span>
+<span>Oct 26</span>
+</div>
+<div>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-tertiary-fixed/15 text-tertiary-fixed-dim font-label-xs text-label-xs font-medium border border-tertiary-fixed/20">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>
+              School
+            </span>
+</div>
+<div class="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded-lg text-[#9AA1C0] hover:text-[#F1F3FF] hover:bg-[#222744]" title="Edit" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+<button class="p-1 rounded-lg text-[#9AA1C0] hover:text-[#F87171] hover:bg-[#3B1C22]" title="Delete" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<div class="task-row group bg-[#171A2E] hover:bg-[#1E233E] transition-colors" data-id="5">
+<div class="grid grid-cols-[40px_32px_1fr_130px_110px_130px_110px_48px] items-center px-space-md py-2.5">
+<div class="flex items-center justify-center">
+<input class="task-select-check w-4 h-4 rounded cursor-pointer accent-[#8B7DFF] bg-[#1E233E] border-[#2A2F52]" type="checkbox"/>
+</div>
+<div class="flex items-center justify-center text-[#9AA1C0]/40 group-hover:text-[#9AA1C0] cursor-grab">
+<span class="material-symbols-outlined text-[18px]">drag_indicator</span>
+</div>
+<div class="flex items-center gap-space-xs min-w-0 pr-2">
+<span class="w-5"></span>
+<input class="task-complete-check w-4 h-4 rounded cursor-pointer accent-[#8B7DFF] bg-[#1E233E] border-[#2A2F52]" type="checkbox"/>
+<input class="task-title-input font-body-md-semibold text-body-md-semibold text-[#F1F3FF] bg-transparent hover:bg-[#222744] focus:bg-[#131627] focus:ring-1 focus:ring-[#8B7DFF]/50 px-2 py-0.5 rounded-lg outline-none w-full truncate transition-all duration-200" type="text" value="Grocery run: oats, berries, almond milk"/>
+</div>
+<div>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-xs text-label-xs font-semibold bg-[#1E2235] text-[#94A3B8]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#94A3B8]"></span>
+              To Do
+            </span>
+</div>
+<div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md font-label-sm text-label-sm bg-[#132B3A] text-[#38BDF8] font-medium">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">flag</span>
+<span>Low</span>
+</span>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-[#9AA1C0]">
+<span class="material-symbols-outlined text-[15px] text-[#9AA1C0]">calendar_today</span>
+<span>Oct 27</span>
+</div>
+<div>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#48f0f5]/15 text-[#48f0f5] font-label-xs text-label-xs font-medium border border-[#48f0f5]/20">
+<span class="w-1.5 h-1.5 rounded-full bg-[#48f0f5]"></span>
+              Personal
+            </span>
+</div>
+<div class="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded-lg text-[#9AA1C0] hover:text-[#F1F3FF] hover:bg-[#222744]" title="Edit" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+<button class="p-1 rounded-lg text-[#9AA1C0] hover:text-[#F87171] hover:bg-[#3B1C22]" title="Delete" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between px-space-md py-3 bg-[#131627] border-t border-[#2A2F52]">
+<button class="flex items-center gap-2 text-[#8B7DFF] font-body-md-semibold text-body-md-semibold hover:opacity-80 transition-opacity px-2 py-1 rounded-lg" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Add new task</span>
+</button>
+<div class="text-[#9AA1C0] font-caption text-caption flex items-center gap-4">
+<span>Showing 5 of 14 tasks</span>
+<div class="flex items-center gap-1">
+<button class="p-1 rounded text-[#9AA1C0]/40 hover:text-[#F1F3FF] disabled:opacity-30" disabled="" type="button"><span class="material-symbols-outlined text-[16px]">chevron_left</span></button>
+<span class="font-label-xs text-label-xs px-2 py-0.5 bg-[#1E233E] rounded text-[#F1F3FF] border border-[#2A2F52]">1</span>
+<button class="p-1 rounded text-[#9AA1C0] hover:text-[#F1F3FF]" type="button"><span class="material-symbols-outlined text-[16px]">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-space-sm bg-[#101324] border border-[#3A4172] text-[#F1F3FF] px-space-md py-2.5 rounded-2xl shadow-2xl transition-all duration-300 transform scale-100" id="bulk-action-bar">
+<div class="flex items-center gap-2 pl-1 pr-2">
+<span class="w-2 h-2 rounded-full bg-[#2DE0E5]"></span>
+<span class="font-body-md-semibold text-body-md-semibold text-[#F1F3FF] tracking-tight" id="selected-count-label">2 tasks selected</span>
+</div>
+<div class="h-5 w-px bg-[#3A4172]"></div>
+<div class="flex items-center gap-1">
+<button class="bulk-btn flex items-center gap-1 px-2.5 py-1.5 rounded-xl hover:bg-[#1E233E] text-[#F1F3FF] font-label-sm text-label-sm transition-colors" title="Mark Complete" type="button">
+<span class="material-symbols-outlined text-[16px] text-[#4ADE80]">check_circle</span>
+<span class="hidden sm:inline">Complete</span>
+</button>
+<button class="bulk-btn flex items-center gap-1 px-2.5 py-1.5 rounded-xl hover:bg-[#1E233E] text-[#F1F3FF] font-label-sm text-label-sm transition-colors" title="Change Status" type="button">
+<span class="material-symbols-outlined text-[16px] text-[#8B7DFF]">published_with_changes</span>
+<span class="hidden sm:inline">Status</span>
+</button>
+<button class="bulk-btn flex items-center gap-1 px-2.5 py-1.5 rounded-xl hover:bg-[#1E233E] text-[#F1F3FF] font-label-sm text-label-sm transition-colors" title="Set Due Date" type="button">
+<span class="material-symbols-outlined text-[16px] text-[#2DE0E5]">event</span>
+<span class="hidden sm:inline">Due Date</span>
+</button>
+<button class="bulk-btn flex items-center gap-1 px-2.5 py-1.5 rounded-xl hover:bg-[#3B1C22] text-[#F87171] font-label-sm text-label-sm transition-colors" title="Delete Tasks" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span class="hidden sm:inline">Delete</span>
+</button>
+</div>
+<div class="h-5 w-px bg-[#3A4172]"></div>
+<button class="px-2 py-1 rounded-lg text-[#9AA1C0] hover:text-[#F1F3FF] font-label-sm text-label-sm transition-colors" id="deselect-btn" type="button">
+      Deselect
+    </button>
+</div>
+</div>
+<script>
+  (function initTaskManager() {
+    const bulkBar = document.getElementById('bulk-action-bar');
+    const selectAll = document.getElementById('select-all-checkbox');
+    const rowCheckboxes = Array.from(document.querySelectorAll('.task-select-check'));
+    const countLabel = document.getElementById('selected-count-label');
+    const deselectBtn = document.getElementById('deselect-btn');
+
+    function updateBulkBar() {
+      const selectedCount = rowCheckboxes.filter(cb => cb.checked).length;
+      if (selectedCount > 0) {
+        bulkBar.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-8');
+        bulkBar.classList.add('opacity-100', 'translate-y-0');
+        countLabel.textContent = `${selectedCount} task${selectedCount > 1 ? 's' : ''} selected`;
+      } else {
+        bulkBar.classList.add('opacity-0', 'pointer-events-none', 'translate-y-8');
+        bulkBar.classList.remove('opacity-100', 'translate-y-0');
+      }
+      selectAll.checked = selectedCount === rowCheckboxes.length && rowCheckboxes.length > 0;
+      selectAll.indeterminate = selectedCount > 0 && selectedCount < rowCheckboxes.length;
+    }
+
+    rowCheckboxes.forEach(cb => {
+      cb.addEventListener('change', updateBulkBar);
+    });
+
+    selectAll.addEventListener('change', (e) => {
+      rowCheckboxes.forEach(cb => {
+        cb.checked = e.target.checked;
+      });
+      updateBulkBar();
+    });
+
+    deselectBtn.addEventListener('click', () => {
+      rowCheckboxes.forEach(cb => {
+        cb.checked = false;
+      });
+      selectAll.checked = false;
+      selectAll.indeterminate = false;
+      updateBulkBar();
+    });
+
+    // Expandable row toggle
+    const expandButtons = document.querySelectorAll('.toggle-expand-btn');
+    expandButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const row = btn.closest('.task-row');
+        const subtasks = row.querySelector('.subtasks-container');
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (subtasks) {
+          if (subtasks.classList.contains('hidden')) {
+            subtasks.classList.remove('hidden');
+            icon.classList.add('rotate-90');
+          } else {
+            subtasks.classList.add('hidden');
+            icon.classList.remove('rotate-90');
+          }
+        }
+      });
+    });
+
+    // Task complete checkbox reaction (strikethrough transition)
+    const completeChecks = document.querySelectorAll('.task-complete-check');
+    completeChecks.forEach(ch => {
+      ch.addEventListener('change', () => {
+        const row = ch.closest('.task-row');
+        const titleInput = row.querySelector('.task-title-input');
+        if (ch.checked) {
+          titleInput.classList.add('line-through', 'text-[#9AA1C0]');
+          titleInput.classList.remove('text-[#F1F3FF]');
+        } else {
+          titleInput.classList.remove('line-through', 'text-[#9AA1C0]');
+          titleInput.classList.add('text-[#F1F3FF]');
+        }
+      });
+    });
+
+    // Simple search filtering
+    const searchInput = document.getElementById('task-filter-input');
+    searchInput.addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase().trim();
+      const rows = document.querySelectorAll('.task-row');
+      rows.forEach(r => {
+        const title = r.querySelector('.task-title-input').value.toLowerCase();
+        if (title.includes(term)) {
+          r.style.display = '';
+        } else {
+          r.style.display = 'none';
+        }
+      });
+    });
+
+    updateBulkBar();
+  })();
+</script></div></main></div></body></html>
