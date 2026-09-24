@@ -1,45 +1,53 @@
-import { Component, signal } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { Component } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+
+type ViewName = "today" | "tasks" | "kanban";
+
+interface Task {
+  id: number;
+  title: string;
+  project: string;
+  priority: "Urgent" | "High" | "Medium" | "Low";
+  status: "To do" | "In progress" | "In review" | "Done";
+  due: string;
+  estimate: string;
+  description: string;
+  done: boolean;
+}
 
 @Component({
   selector: "app-root",
   standalone: true,
-  imports: [CommonModule],
   templateUrl: "./app.component.html",
+  styleUrl: "./app.component.css",
+  imports: [CommonModule, FormsModule],
 })
 export class AppComponent {
-  activeView = signal("Today Dashboard");
-  focusRunning = signal(false);
-  completedTaskIds = signal<number[]>([2]);
+  activeView: ViewName = "today";
+  statuses: Task["status"][] = ["To do", "In progress", "In review", "Done"];
+  searchTerm = "";
+  drawerOpen = false;
+  selectedTask: Task | null = null;
 
-  navItems = [
-    { label: "Today Dashboard", icon: "sunny" },
-    { label: "All Tasks", icon: "checklist" },
-    { label: "Board", icon: "view_kanban" },
-    { label: "Calendar", icon: "calendar_month" },
-    { label: "Planner", icon: "map" },
-    { label: "Focus Mode", icon: "center_focus_strong" },
-    { label: "Habits", icon: "autorenew" },
-    { label: "Analytics", icon: "insights" },
-    { label: "Gamification Hub", icon: "emoji_events" },
-    { label: "Templates", icon: "dashboard_customize" },
-    { label: "Settings", icon: "settings" },
+  tasks: Task[] = [
+    { id: 1, title: "Finalize Q4 roadmap", project: "Product launch", priority: "Urgent", status: "In progress", due: "Today, 4:00 PM", estimate: "2h", description: "Lock the release milestones and share the final roadmap with the product team.", done: false },
+    { id: 2, title: "Review analytics dashboard", project: "Product launch", priority: "High", status: "To do", due: "Today, 5:30 PM", estimate: "45m", description: "Check the activation funnel and annotate the largest changes since last week.", done: false },
+    { id: 3, title: "Update onboarding copy", project: "Growth experiments", priority: "Medium", status: "In review", due: "Tomorrow", estimate: "1h", description: "Polish the empty states and the first-run checklist before the experiment goes live.", done: false },
+    { id: 4, title: "Prepare team retro", project: "Operations", priority: "Low", status: "Done", due: "Yesterday", estimate: "30m", description: "Collect notes and prepare the discussion prompts for Friday's retrospective.", done: true },
+    { id: 5, title: "Connect billing webhooks", project: "Product launch", priority: "High", status: "To do", due: "Friday", estimate: "3h", description: "Add retry handling and verify the subscription lifecycle events in staging.", done: false },
+    { id: 6, title: "Audit keyboard shortcuts", project: "Operations", priority: "Medium", status: "In progress", due: "Friday", estimate: "1h", description: "Document the command palette actions and remove conflicting browser shortcuts.", done: false },
   ];
 
-  tasks = [
-    { id: 1, title: "Finish Embedded Systems lab report", description: "Run timing analysis benchmarks for RTOS thread prioritization and generate graphs.", tag: "School", priority: "High", due: "Today, 5:00 PM", progress: 75 },
-    { id: 2, title: "Push Angular task manager update", description: "Code review and staging test for the task manager release.", tag: "Coding", priority: "Urgent", due: "11:00 AM - 12:00 PM", progress: 50 },
-    { id: 3, title: "Rehearse Echoes of Praise set list", description: "Run through the updated vocal arrangements before rehearsal.", tag: "Choir", priority: "Medium", due: "Tomorrow, 9:00 AM", progress: 0 },
-    { id: 4, title: "Prepare data structures revision notes", description: "Create a compact reference for trees, graphs, and red-black nodes.", tag: "School", priority: "Low", due: "Friday, 3:00 PM", progress: 0 },
-  ];
-
-  setView(view: string) { this.activeView.set(view); }
-
-  toggleTask(taskId: number) {
-    this.completedTaskIds.update((ids) => ids.includes(taskId) ? ids.filter((id) => id !== taskId) : [...ids, taskId]);
+  setView(view: ViewName): void { this.activeView = view; this.drawerOpen = false; }
+  openTask(task: Task): void { this.selectedTask = task; this.drawerOpen = true; }
+  closeDrawer(): void { this.drawerOpen = false; }
+  toggleTask(task: Task): void { task.done = !task.done; task.status = task.done ? "Done" : "To do"; }
+  filteredTasks(): Task[] {
+    const query = this.searchTerm.trim().toLowerCase();
+    return query ? this.tasks.filter((task) => `${task.title} ${task.project}`.toLowerCase().includes(query)) : this.tasks;
   }
-
-  isComplete(taskId: number) { return this.completedTaskIds().includes(taskId); }
-
-  toggleFocus() { this.focusRunning.update((running) => !running); }
+  tasksByStatus(status: Task["status"]): Task[] { return this.filteredTasks().filter((task) => task.status === status); }
+  priorityClass(priority: Task["priority"]): string { return priority.toLowerCase(); }
 }
+

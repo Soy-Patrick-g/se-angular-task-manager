@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary":"#ffffff","on-tertiary-fixed":"#291800","secondary-container":"#61f4f9","on-primary":"#ffffff","surface-variant":"#dee1fb","on-primary-fixed":"#160066","surface-dim":"#d6d8f3","tertiary-fixed-dim":"#ffba4b","secondary-fixed-dim":"#3fdadf","surface-bright":"#fbf8ff","background":"#fbf8ff","on-secondary-container":"#006e71","on-surface":"#161a2d","on-background":"#161a2d","secondary-fixed":"#65f7fc","on-secondary-fixed":"#002021","primary-fixed":"#e4dfff","primary-container":"#6c5ce7","on-surface-variant":"#474554","surface-container":"#ececff","on-primary-container":"#faf6ff","tertiary-container":"#9a6700","error":"#ba1a1a","on-tertiary-container":"#fff6ee","on-error-container":"#93000a","on-primary-fixed-variant":"#4029ba","tertiary":"#7a5000","inverse-on-surface":"#f0efff","inverse-primary":"#c6bfff","on-secondary-fixed-variant":"#004f52","surface-tint":"#5847d2","surface-container-high":"#e5e7ff","outline":"#787586","primary":"#5341cd","surface-container-highest":"#dee1fb","error-container":"#ffdad6","surface-container-lowest":"#ffffff","on-tertiary":"#ffffff","primary-fixed-dim":"#c6bfff","surface-container-low":"#f3f2ff","outline-variant":"#c8c4d7","tertiary-fixed":"#ffddb1","on-error":"#ffffff","inverse-surface":"#2b2f43","on-tertiary-fixed-variant":"#624000","secondary":"#00696c","surface":"#fbf8ff"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-sm":"0.75rem","space-2xs":"0.25rem","margin-md":"1.5rem",gutter:"1rem","space-md":"1rem","gutter-lg":"1.5rem","margin-lg":"2rem","space-xs":"0.5rem","space-lg":"1.5rem",margin:"1rem","space-xl":"2rem","space-2xl":"3rem"},fontFamily:{"label-sm":["Inter"],"body-md-semibold":["Inter"],"label-xs":["Inter"],caption:["Inter"],"headline-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-lg-medium":["Inter"],"headline-xl-mobile":["Plus Jakarta Sans"],"body-md":["Inter"],"body-lg":["Inter"],"body-md-medium":["Inter"],"headline-xl":["Plus Jakarta Sans"]},fontSize:{"label-sm":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"500"}],"body-md-semibold":["14px",{lineHeight:"20px",fontWeight:"600"}],"label-xs":["11px",{lineHeight:"14px",letterSpacing:"0.02em",fontWeight:"600"}],caption:["12px",{lineHeight:"16px",fontWeight:"400"}],"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg-medium":["16px",{lineHeight:"24px",fontWeight:"500"}],"headline-xl-mobile":["26px",{lineHeight:"34px",letterSpacing:"-0.015em",fontWeight:"700"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"body-md-medium":["14px",{lineHeight:"20px",fontWeight:"500"}],"headline-xl":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-60 bg-surface-container-lowest border-r border-outline-variant/40 z-40 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center justify-between border-b border-outline-variant/30"><div class="flex items-center gap-space-xs"><img alt="TaskFlow Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WRyxlJyo8B0YVkzrUDLuVnKwQ4W4L7o8vVjjW0_jvAkEeFvBKJvz94vKo8l-_S7mj9_4EJLmeHizCQReqSPYstG0QJVE5-0dwNGtpTGOZLn0KxAUyvhMNsC3lTOwaHIVeskTyG8xf0AbNSpL2onC-GH1RMOYeduZ2Q_S2Nf_QEb9C93t1BD4O50bp5f73Px4CPAdY_UOu8afDR5lTv11Cc-0mdpQLUeu93pbfxa4MmVsicKaF9F8LFxwU"/><span class="font-headline-md text-headline-md text-on-surface tracking-tight font-bold">TaskFlow</span></div><span class="px-space-2xs py-0.5 rounded-lg bg-surface-container-high text-on-surface-variant font-label-xs text-label-xs">v1.0</span></div><div class="p-space-xs"><div class="px-space-xs py-space-2xs font-label-xs text-label-xs text-outline uppercase tracking-wider">Views</div><nav class="space-y-0.5 mt-space-2xs" data-active-classes="bg-surface-container-high text-on-surface font-semibold"><a class="flex items-center justify-between px-space-xs py-1.5 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="today" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px]">wb_sunny</span><span>Today</span></div><span class="px-1.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-xs text-label-xs">5</span></a><a class="flex items-center justify-between px-space-xs py-1.5 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="all-tasks" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px]">checklist</span><span>All Tasks</span></div><span class="px-1.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-xs text-label-xs">14</span></a><a aria-current="page" class="flex items-center justify-between px-space-xs py-1.5 rounded-lg transition-colors bg-surface-container-high text-on-surface font-semibold" data-path="board" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px]">view_kanban</span><span>Board</span></div></a><a class="flex items-center justify-between px-space-xs py-1.5 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="calendar" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px]">calendar_today</span><span>Calendar</span></div></a><a class="flex items-center justify-between px-space-xs py-1.5 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="habits" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px]">local_fire_department</span><span>Habits</span></div></a></nav></div><div class="p-space-xs mt-space-2xs"><div class="px-space-xs py-space-2xs font-label-xs text-label-xs text-outline uppercase tracking-wider flex items-center justify-between"><span>Projects</span><span class="material-symbols-outlined text-[16px] text-outline hover:text-on-surface cursor-pointer">add</span></div><div class="space-y-0.5 mt-space-2xs"><a class="flex items-center gap-space-xs px-space-xs py-1.5 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="school" href="#"><span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim ring-2 ring-tertiary-fixed-dim/20"></span><span>School</span></a><a class="flex items-center gap-space-xs px-space-xs py-1.5 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="choir" href="#"><span class="w-2 h-2 rounded-full bg-secondary-fixed-dim ring-2 ring-secondary-fixed-dim/20"></span><span>Choir</span></a><a class="flex items-center gap-space-xs px-space-xs py-1.5 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="coding" href="#"><span class="w-2 h-2 rounded-full bg-primary-container ring-2 ring-primary-container/20"></span><span>Coding</span></a><a class="flex items-center gap-space-xs px-space-xs py-1.5 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="personal" href="#"><span class="w-2 h-2 rounded-full bg-secondary ring-2 ring-secondary/20"></span><span>Personal</span></a></div></div></div><div class="p-space-xs border-t border-outline-variant/30"><div class="flex items-center justify-between px-space-xs py-1.5 mb-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Theme</span><button class="flex items-center p-1 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[16px]">light_mode</span></button></div><a class="flex items-center gap-space-xs px-space-xs py-1.5 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Settings</span></a></div></aside><div class="pl-60 min-h-screen flex flex-col"><header class="fixed top-0 left-60 right-0 h-16 bg-surface-container-lowest/80 backdrop-blur-xl border-b border-outline-variant/40 z-30 flex items-center justify-between px-space-xl"><div class="flex items-center flex-1 max-w-md"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-[18px] text-outline pointer-events-none">search</span><input class="w-full pl-9 pr-14 py-1.5 rounded-xl border border-outline-variant bg-surface-container-lowest font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all" placeholder="Search tasks, labels, notes..." type="text"/><span class="absolute right-2 px-1.5 py-0.5 rounded border border-outline-variant/60 font-label-xs text-label-xs text-outline bg-surface-container-low pointer-events-none">⌘K</span></div></div><div class="flex items-center gap-space-md"><button class="flex items-center gap-space-xs px-space-sm py-2 rounded-xl bg-gradient-to-r from-[#6C5CE7] to-[#00C2C7] text-on-primary font-body-md-semibold text-body-md-semibold shadow-[0_2px_8px_rgba(108,92,231,0.25)] hover:opacity-95 active:scale-[0.98] transition-all" type="button"><span class="material-symbols-outlined text-[18px]">add</span><span>New task</span></button><div class="relative flex items-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhS8CDrZfkP99-twoPFP-FUNUpthTxQw70gRIkILuPir6X47tYWgAU7486gR6xAvDvEmjU0BNM08hktYN7mRCOFF4pKEJlyYrJZIJDM9tiLJYXWAftC39XmtIVj-teHx5VfOYt1aeJrpY_Qo7Ax5OcUdZhJgmIS4y3kv5ufbgByd5QGLh-30GMrq2mT3ypq7kU29qeWYhdibDD1-uQbVhWtx-w-B1iwaIX-k-2dZE2L7-Bp7YgxTe8xg"/><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></div></div></header><main class="flex-1 pt-16 bg-surface"><div class="max-w-[1100px] mx-auto px-space-xl py-space-xl"><div class="flex flex-col w-full">
+<!-- Kanban Top Control Deck -->
+<div class="flex flex-col gap-space-lg mb-space-xl">
+<!-- Breadcrumb / Overline and Meta Metrics Strip -->
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-xs text-label-xs uppercase tracking-wider">
+<span class="flex items-center gap-1 font-semibold text-primary">
+<span class="material-symbols-outlined text-[16px]">view_kanban</span>
+          WORKSPACE
+        </span>
+<span class="text-outline-variant font-bold">/</span>
+<span class="font-medium text-on-surface">SPRING 2025 SPRINT</span>
+<span class="text-outline-variant font-bold">/</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-xs text-label-xs font-semibold">Sprint 04 • 14 active</span>
+</div>
+<!-- Quick Action Stats Pill -->
+<div class="flex items-center gap-space-sm bg-surface-container-lowest px-space-sm py-1.5 rounded-full shadow-sm">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Velocity: <strong class="text-on-surface font-semibold">18 pts</strong></span>
+</div>
+<div class="w-1 h-3 rounded-full bg-surface-container-highest"></div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-tertiary">pace</span>
+<span>Efficiency: <strong class="text-on-surface font-semibold">92%</strong></span>
+</div>
+</div>
+</div>
+<!-- Title and Primary Control Row -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex items-baseline gap-space-md">
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-bold">Project Board</h1>
+<span class="hidden sm:inline-block font-caption text-caption text-outline">Updated 4m ago</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- View Toggle Switch -->
+<div class="inline-flex p-1 rounded-xl bg-surface-container shadow-inner">
+<button class="flex items-center gap-1.5 px-space-sm py-1.5 rounded-lg bg-surface-container-lowest font-body-md-semibold text-body-md-semibold text-primary shadow-sm transition-all" title="Kanban View" type="button">
+<span class="material-symbols-outlined text-[18px]">view_kanban</span>
+<span class="font-medium">Board</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-sm py-1.5 rounded-lg font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" title="Switch to List" type="button">
+<span class="material-symbols-outlined text-[18px]">view_list</span>
+<span class="font-medium">List</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-sm py-1.5 rounded-lg font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" title="Switch to Timeline" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_view_week</span>
+<span class="font-medium">Timeline</span>
+</button>
+</div>
+<!-- Add Column / Automation action -->
+<button class="flex items-center gap-space-2xs px-space-sm py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-body-md-semibold text-body-md-semibold transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">view_column</span>
+<span>New Column</span>
+</button>
+<button class="flex items-center gap-space-2xs px-space-sm py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-body-md-semibold text-body-md-semibold transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+<span>Filter</span>
+</button>
+</div>
+</div>
+<!-- Active Filter Pills Strip & Micro Search -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 sm:pb-0" id="filterPillGroup">
+<button class="px-space-sm py-1 rounded-full font-body-md-semibold text-body-md-semibold bg-primary text-on-primary shadow-sm hover:opacity-95 transition-all" type="button">
+          All Tasks
+        </button>
+<button class="flex items-center gap-1.5 px-space-sm py-1 rounded-full font-body-md-medium text-body-md-medium bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-colors" type="button">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+<span>School</span>
+<span class="font-label-xs text-label-xs opacity-70">4</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-sm py-1 rounded-full font-body-md-medium text-body-md-medium bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-colors" type="button">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed-dim"></span>
+<span>Choir</span>
+<span class="font-label-xs text-label-xs opacity-70">3</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-sm py-1 rounded-full font-body-md-medium text-body-md-medium bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-colors" type="button">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span>Coding</span>
+<span class="font-label-xs text-label-xs opacity-70">5</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-sm py-1 rounded-full font-body-md-medium text-body-md-medium bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-colors" type="button">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Personal</span>
+<span class="font-label-xs text-label-xs opacity-70">2</span>
+</button>
+</div>
+<!-- Quick board filter input -->
+<div class="flex items-center justify-end gap-space-xs text-outline font-label-xs text-label-xs">
+<span class="material-symbols-outlined text-[16px]">drag_indicator</span>
+<span>Drag cards between columns to reschedule status</span>
+</div>
+</div>
+</div>
+<!-- Kanban Horizontal Columns Canvas -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-lg items-start w-full">
+<!-- COLUMN 1: TO DO -->
+<div class="flex flex-col bg-surface-container-low rounded-2xl p-space-sm shadow-sm" data-column="todo">
+<!-- Column Header -->
+<div class="flex items-center justify-between px-space-xs py-space-xs mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-outline"></span>
+<h2 class="font-body-md-semibold text-body-md-semibold text-on-surface tracking-wide uppercase">To Do</h2>
+<span class="flex items-center justify-center min-w-5 h-5 px-1.5 rounded-full bg-surface-container-high font-label-xs text-label-xs font-bold text-on-surface-variant">4</span>
+</div>
+<div class="flex items-center">
+<button class="p-1 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Column Options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Column Card Stream -->
+<div class="flex flex-col gap-space-sm">
+<!-- Card 1.1: Rehearse Echoes of Praise -->
+<div class="group relative flex flex-col bg-surface-container-lowest rounded-2xl p-space-md shadow-sm hover:shadow-md transition-all cursor-grab active:cursor-grabbing">
+<!-- Top Row: Project Tag + Priority -->
+<div class="flex items-center justify-between mb-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-xs text-label-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              Choir
+            </span>
+<div class="flex items-center gap-1" title="Priority: Medium">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-medium">Med</span>
+</div>
+</div>
+<!-- Title -->
+<h3 class="font-body-md-semibold text-body-md-semibold text-on-surface leading-snug mb-space-sm group-hover:text-primary transition-colors">
+            Rehearse Echoes of Praise set list
+          </h3>
+<!-- Subtasks Progress Widget -->
+<div class="flex items-center justify-between bg-surface-container-low px-space-xs py-1.5 rounded-xl mb-space-sm">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-xs text-label-xs">
+<span class="material-symbols-outlined text-[16px] text-outline">checklist</span>
+<span>0 of 3 subtasks</span>
+</div>
+<div class="w-14 h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary" style="width: 0%;"></div>
+</div>
+</div>
+<!-- Bottom Meta: Due Date + Assignee Avatar -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-xs text-label-xs">
+<span class="material-symbols-outlined text-[15px] text-outline">event</span>
+<span class="font-medium">Tomorrow</span>
+</div>
+<div class="flex items-center -space-x-1.5">
+<img class="w-6 h-6 rounded-full object-cover shadow-sm ring-1 ring-surface-container-lowest" data-alt="Close up photographic portrait of an attentive young music director with warm lighting, studio aesthetic with gentle purple rim glow, clean focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNdW9JJGhOttcW-6LLyXyp8mM1Yk11t1svtMooey0fSOauvf_f4Ojxg9F6MiGTvj1JNC5LNYdVv7pDR7Up6OGOIkq4jqrPWYQxMpGBZrkH1pO4n_Ow-zZIS5lTKERzfBNdJAlW0y_HU6lmq5F7kEQZrlBoeICIwSqo4VpFrTazefw-UoPc_tXg0XY3oQ0yzWMIE3KAnHWAUHKWrr27WllAXcN7ky1R7nnQafY0_XlEDX5AZVnyyMKlUQ"/>
+</div>
+</div>
+</div>
+<!-- Card 1.2: Grocery run & meal prep -->
+<div class="group relative flex flex-col bg-surface-container-lowest rounded-2xl p-space-md shadow-sm hover:shadow-md transition-all cursor-grab active:cursor-grabbing">
+<!-- Top Row: Project Tag + Priority -->
+<div class="flex items-center justify-between mb-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-xs text-label-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              Personal
+            </span>
+<div class="flex items-center gap-1" title="Priority: Low">
+<span class="w-2 h-2 rounded-full bg-surface-dim"></span>
+<span class="font-label-xs text-label-xs text-outline font-medium">Low</span>
+</div>
+</div>
+<!-- Title -->
+<h3 class="font-body-md-semibold text-body-md-semibold text-on-surface leading-snug mb-space-sm group-hover:text-primary transition-colors">
+            Grocery run &amp; meal prep
+          </h3>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-space-sm">
+            Stock up on seasonal vegetables, almond milk, and organize containers for weekday dinners.
+          </p>
+<!-- Bottom Meta: Due Date & Check icon -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1 text-outline font-label-xs text-label-xs">
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+<span>Sunday 10am</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline opacity-60">local_grocery_store</span>
+</div>
+</div>
+<!-- Card 1.3: Visual Spec Mini Graphic Card -->
+<div class="group relative flex flex-col bg-surface-container-lowest rounded-2xl p-space-md shadow-sm hover:shadow-md transition-all cursor-grab active:cursor-grabbing">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-xs text-label-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+              Coding
+            </span>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-medium">Med</span>
+</div>
+</div>
+<!-- Micro Banner Image -->
+<div class="w-full h-20 rounded-xl overflow-hidden mb-space-xs shadow-inner">
+<img class="w-full h-full object-cover" data-alt="Minimal architectural photograph of clean modern concrete workspace with soft daylight and vibrant purple geometry accents, high-end design editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB13Etu0lw2NSiSfG4Cnf5stxiGsqao-YxLvDpQ4xgHNEaD6tvPt9j3-ZV6TdiP1IVatIWJCf1ztZngXbcx3G0p55BSpMaNnHcvwbVmJNup-FI0OT5yEvKH0g-aG7uL-gfpEGWejTvAx9n-dTZ_aRL2uAImszY6qDbFJtNmTNWgkJq0X4NtyqS5gYBKkmPUIaYZXbDpD22gxlL3mCQoQKHIzaS9XERIvYTdvA7jfyYGPCh8uy3z3wJHw"/>
+</div>
+<h3 class="font-body-md-semibold text-body-md-semibold text-on-surface leading-snug group-hover:text-primary transition-colors">
+            Audit API latency logs
+          </h3>
+<div class="flex items-center justify-between pt-space-xs text-outline font-label-xs text-label-xs">
+<span>Next week</span>
+<span class="material-symbols-outlined text-[16px]">stacked_bar_chart</span>
+</div>
+</div>
+<!-- Add Task Quick Button -->
+<button class="flex items-center justify-center gap-space-xs w-full py-2.5 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-on-surface-variant hover:text-primary font-body-md-medium text-body-md-medium shadow-sm transition-all group" type="button">
+<span class="material-symbols-outlined text-[18px] group-hover:scale-110 transition-transform">add</span>
+<span>Add task</span>
+</button>
+</div>
+</div>
+<!-- COLUMN 2: IN PROGRESS (Shows Active Lift State on Top Card) -->
+<div class="flex flex-col bg-surface-container-low rounded-2xl p-space-sm shadow-sm" data-column="in-progress">
+<!-- Column Header -->
+<div class="flex items-center justify-between px-space-xs py-space-xs mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<h2 class="font-body-md-semibold text-body-md-semibold text-on-surface tracking-wide uppercase">In Progress</h2>
+<span class="flex items-center justify-center min-w-5 h-5 px-1.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-xs text-label-xs font-bold">3</span>
+</div>
+<div class="flex items-center">
+<button class="p-1 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Column Options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Column Card Stream -->
+<div class="flex flex-col gap-space-sm">
+<!-- CARD WITH DRAG-AND-DROP LIFT STATE ILLUSTRATION (Layer 4 Elevation) -->
+<div class="relative flex flex-col bg-surface-container-lowest rounded-2xl p-space-md shadow-2xl scale-[1.02] transform -rotate-1 transition-all z-20 cursor-grabbing bg-gradient-to-br from-surface-container-lowest via-surface-container-lowest to-surface-container-low">
+<!-- Dragging Indicator Halo -->
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-xs text-label-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                Coding
+              </span>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-label-xs text-label-xs font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">bolt</span>
+                Urgent
+              </span>
+</div>
+<!-- Visual Drag Grip -->
+<span class="material-symbols-outlined text-[18px] text-primary">drag_indicator</span>
+</div>
+<!-- Title -->
+<h3 class="font-body-md-semibold text-body-md-semibold text-on-surface leading-snug mb-space-sm">
+            Push Angular task manager update
+          </h3>
+<!-- Subtasks Progress (60%) -->
+<div class="flex flex-col gap-1.5 bg-surface-container px-space-xs py-2 rounded-xl mb-space-sm">
+<div class="flex items-center justify-between text-on-surface font-label-xs text-label-xs font-semibold">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">check_circle</span>
+                3 of 5 subtasks
+              </span>
+<span class="text-primary font-bold">60%</span>
+</div>
+<!-- Gradient Progress Bar -->
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 60%;"></div>
+</div>
+</div>
+<!-- Meta: Due Time & Assignee Avatar -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1 px-2 py-0.5 rounded-lg bg-surface-container font-label-xs text-label-xs text-error font-semibold">
+<span class="material-symbols-outlined text-[14px]">alarm</span>
+<span>Today 5pm</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-xs text-label-xs text-outline">Lead</span>
+<img class="w-6 h-6 rounded-full object-cover shadow-sm" data-alt="Portrait photo of a young modern female software engineer wearing circular glasses with soft studio backlight, friendly smile, crisp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACkm6-WRnTNr0AAHs5U7zLOMaxF1Y4z_g-nWggP9tzkJp4fexBL_xGLuV99nEmMQJgifTt6v91n6IvZke6YoHLXBeBAsGSV6f3B9rcXkY5IxoSYQGZYvJqVQGKLUzWzAADNqbivdixu2sTWVlcSxps0_K3bejO325LVlw-L7jT5AclaX1FiJBmmDKtvseNyMFhII2RuG70MKj1H9ckzeJ0zl7cTHSxOGx3PmtPzQ6np3K4l-P-p9i6yg"/>
+</div>
+</div>
+</div>
+<!-- Ghost / Drop target placeholder behind lifted card -->
+<div class="h-2 rounded-xl bg-primary/20 -my-1"></div>
+<!-- Card 2.2: Finish Embedded Systems lab report -->
+<div class="group relative flex flex-col bg-surface-container-lowest rounded-2xl p-space-md shadow-sm hover:shadow-md transition-all cursor-grab active:cursor-grabbing">
+<!-- Top Row: Project Tag + Overdue Alert -->
+<div class="flex items-center justify-between mb-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-xs text-label-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              School
+            </span>
+<!-- Overdue Badge Pill -->
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-xs text-label-xs font-bold">
+<span class="material-symbols-outlined text-[12px]">warning</span>
+              Overdue 1d
+            </span>
+</div>
+<!-- Title -->
+<h3 class="font-body-md-semibold text-body-md-semibold text-on-surface leading-snug mb-space-sm group-hover:text-primary transition-colors">
+            Finish Embedded Systems lab report
+          </h3>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-space-sm">
+            Assemble logic analyzer waveforms and complete oscilloscope power dissipation derivations.
+          </p>
+<!-- Bottom Row: Priority & Team Avatar -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1 font-label-xs text-label-xs text-tertiary font-semibold">
+<span class="material-symbols-outlined text-[15px]">flag</span>
+<span>High priority</span>
+</div>
+<div class="flex items-center -space-x-1.5">
+<span class="w-6 h-6 rounded-full bg-surface-container-highest text-on-surface font-label-xs text-label-xs flex items-center justify-center font-bold">ES</span>
+</div>
+</div>
+</div>
+<!-- Card 2.3: Quick Research Note -->
+<div class="group relative flex flex-col bg-surface-container-lowest rounded-2xl p-space-md shadow-sm hover:shadow-md transition-all cursor-grab active:cursor-grabbing">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-xs text-label-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              Choir
+            </span>
+<span class="font-label-xs text-label-xs text-outline">Sectionals</span>
+</div>
+<h3 class="font-body-md-semibold text-body-md-semibold text-on-surface leading-snug mb-space-xs group-hover:text-primary transition-colors">
+            Soprano/Alto harmony vocal splits
+          </h3>
+<div class="flex items-center justify-between pt-space-xs text-on-surface-variant font-label-xs text-label-xs">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-outline">mic</span>
+<span>Audio track uploaded</span>
+</span>
+<span class="font-medium text-primary">In review</span>
+</div>
+</div>
+<!-- Add Task Quick Button -->
+<button class="flex items-center justify-center gap-space-xs w-full py-2.5 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-on-surface-variant hover:text-primary font-body-md-medium text-body-md-medium shadow-sm transition-all group" type="button">
+<span class="material-symbols-outlined text-[18px] group-hover:scale-110 transition-transform">add</span>
+<span>Add task</span>
+</button>
+</div>
+</div>
+<!-- COLUMN 3: REVIEW -->
+<div class="flex flex-col bg-surface-container-low rounded-2xl p-space-sm shadow-sm" data-column="review">
+<!-- Column Header -->
+<div class="flex items-center justify-between px-space-xs py-space-xs mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary-fixed-dim"></span>
+<h2 class="font-body-md-semibold text-body-md-semibold text-on-surface tracking-wide uppercase">Review</h2>
+<span class="flex items-center justify-center min-w-5 h-5 px-1.5 rounded-full bg-surface-container-high font-label-xs text-label-xs font-bold text-on-surface-variant">2</span>
+</div>
+<div class="flex items-center">
+<button class="p-1 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Column Options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Column Card Stream -->
+<div class="flex flex-col gap-space-sm">
+<!-- Card 3.1: Review LSP meeting agenda -->
+<div class="group relative flex flex-col bg-surface-container-lowest rounded-2xl p-space-md shadow-sm hover:shadow-md transition-all cursor-grab active:cursor-grabbing">
+<!-- Top Row: Project Tag + Due Date -->
+<div class="flex items-center justify-between mb-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-xs text-label-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              School
+            </span>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-xs text-label-xs">
+<span class="material-symbols-outlined text-[15px] text-outline">event</span>
+<span class="font-medium">Friday</span>
+</div>
+</div>
+<!-- Title -->
+<h3 class="font-body-md-semibold text-body-md-semibold text-on-surface leading-snug mb-space-xs group-hover:text-primary transition-colors">
+            Review LSP meeting agenda
+          </h3>
+<!-- Notes Excerpt Box -->
+<div class="bg-surface-container-low p-space-xs rounded-xl mb-space-sm">
+<div class="flex items-start gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline mt-0.5 shrink-0">format_quote</span>
+<p class="font-caption text-caption text-on-surface-variant italic leading-relaxed">
+                "Compare revised club bylaws with student union guide."
+              </p>
+</div>
+</div>
+<!-- Bottom: Reviewer Indicator -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1 font-label-xs text-label-xs text-outline">
+<span class="material-symbols-outlined text-[15px]">rate_review</span>
+<span>Needs approval</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="px-2 py-0.5 rounded-md bg-surface-container font-label-xs text-label-xs text-on-surface-variant font-semibold">Council</span>
+</div>
+</div>
+</div>
+<!-- Card 3.2: PR Audit for Database migrations -->
+<div class="group relative flex flex-col bg-surface-container-lowest rounded-2xl p-space-md shadow-sm hover:shadow-md transition-all cursor-grab active:cursor-grabbing">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-xs text-label-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+              Coding
+            </span>
+<span class="font-label-xs text-label-xs text-secondary font-semibold">PR #48</span>
+</div>
+<h3 class="font-body-md-semibold text-body-md-semibold text-on-surface leading-snug mb-space-sm group-hover:text-primary transition-colors">
+            Validate user session schema migration
+          </h3>
+<!-- Inline mini visual verification stat -->
+<div class="flex items-center gap-2 mb-space-sm">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container font-label-xs text-label-xs text-on-surface">
+<span class="material-symbols-outlined text-[13px] text-secondary">verified</span>
+              Tests Passing
+            </span>
+<span class="font-label-xs text-label-xs text-outline">12 files changed</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs text-outline font-label-xs text-label-xs">
+<span>Requested 4h ago</span>
+<img class="w-6 h-6 rounded-full object-cover shadow-sm" data-alt="Close up photographic headshot of an experienced software mentor with dark curly hair and a calm expression in a softly illuminated tech office." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5N3_ZzFqjkVps6G9kWIvyJdhVIpC3-k5kwiWgdJ6CL6Ql82Vv9bSkFHX54br188YpK3XqbVcpvnXH-o1iPkie9MYe1ihUtg0vy1iBZgEoFeZ6vW7cYslrX0V61lMgY7zDtDBLzZk4ipESXrcAnTC5b-m3OPaWOq1oy0jDlJH1ZrZ4DKzvBSSdbGU0ML4948E2b-a7zBWbuGrWvk4dBinVZ2QwlDv_ZgtGfYGVPHTNRHKOl0Fda8uaAg"/>
+</div>
+</div>
+<!-- Add Task Quick Button -->
+<button class="flex items-center justify-center gap-space-xs w-full py-2.5 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-on-surface-variant hover:text-primary font-body-md-medium text-body-md-medium shadow-sm transition-all group" type="button">
+<span class="material-symbols-outlined text-[18px] group-hover:scale-110 transition-transform">add</span>
+<span>Add task</span>
+</button>
+</div>
+</div>
+<!-- COLUMN 4: DONE -->
+<div class="flex flex-col bg-surface-container-low rounded-2xl p-space-sm shadow-sm" data-column="done">
+<!-- Column Header -->
+<div class="flex items-center justify-between px-space-xs py-space-xs mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<h2 class="font-body-md-semibold text-body-md-semibold text-on-surface tracking-wide uppercase">Done</h2>
+<span class="flex items-center justify-center min-w-5 h-5 px-1.5 rounded-full bg-surface-container-high font-label-xs text-label-xs font-bold text-on-surface-variant">5</span>
+</div>
+<div class="flex items-center">
+<button class="p-1 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Column Options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Column Card Stream -->
+<div class="flex flex-col gap-space-sm">
+<!-- Card 4.1: Set up Postgres local database container -->
+<div class="group relative flex flex-col bg-surface-container-lowest/80 rounded-2xl p-space-md shadow-sm hover:shadow-md transition-all cursor-grab active:cursor-grabbing opacity-90 hover:opacity-100">
+<!-- Top Row: Label + Completion Stamp -->
+<div class="flex items-center justify-between mb-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary-fixed/60 text-on-primary-fixed-variant font-label-xs text-label-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+              Coding
+            </span>
+<div class="flex items-center gap-1 text-secondary font-label-xs text-label-xs font-semibold">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>2h ago</span>
+</div>
+</div>
+<!-- Strikethrough Title -->
+<h3 class="font-body-md-semibold text-body-md-semibold text-on-surface-variant line-through decoration-outline decoration-1 mb-space-sm leading-snug">
+            Set up Postgres local database container
+          </h3>
+<!-- Details & Environment Pill -->
+<div class="flex items-center justify-between pt-space-xs">
+<span class="px-2 py-0.5 rounded-lg bg-surface-container font-label-xs text-label-xs text-outline font-medium">Docker • Compose</span>
+<div class="flex items-center gap-1 text-outline font-label-xs text-label-xs">
+<span class="material-symbols-outlined text-[15px]">done_all</span>
+<span>Completed</span>
+</div>
+</div>
+</div>
+<!-- Card 4.2: Practice Vocal Warmups -->
+<div class="group relative flex flex-col bg-surface-container-lowest/80 rounded-2xl p-space-md shadow-sm hover:shadow-md transition-all cursor-grab active:cursor-grabbing opacity-90 hover:opacity-100">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-fixed/60 text-on-secondary-fixed font-label-xs text-label-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              Choir
+            </span>
+<div class="flex items-center gap-1 text-secondary font-label-xs text-label-xs font-semibold">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Yesterday</span>
+</div>
+</div>
+<h3 class="font-body-md-semibold text-body-md-semibold text-on-surface-variant line-through decoration-outline decoration-1 mb-space-xs leading-snug">
+            30-minute interval arpeggio drill
+          </h3>
+<div class="flex items-center justify-between pt-space-xs text-outline font-label-xs text-label-xs">
+<span>Recorded in Habit Tracker</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary">local_fire_department</span>
+</div>
+</div>
+<!-- Card 4.3: Order Calculus textbook -->
+<div class="group relative flex flex-col bg-surface-container-lowest/80 rounded-2xl p-space-md shadow-sm hover:shadow-md transition-all cursor-grab active:cursor-grabbing opacity-90 hover:opacity-100">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-tertiary-fixed/60 text-on-tertiary-fixed-variant font-label-xs text-label-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              School
+            </span>
+<div class="flex items-center gap-1 text-secondary font-label-xs text-label-xs font-semibold">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Oct 12</span>
+</div>
+</div>
+<h3 class="font-body-md-semibold text-body-md-semibold text-on-surface-variant line-through decoration-outline decoration-1 mb-space-xs leading-snug">
+            Order Calculus III digital access code
+          </h3>
+<div class="flex items-center justify-between pt-space-xs text-outline font-label-xs text-label-xs">
+<span>Receipt saved</span>
+<span class="material-symbols-outlined text-[16px]">receipt_long</span>
+</div>
+</div>
+<!-- Add Task Quick Button -->
+<button class="flex items-center justify-center gap-space-xs w-full py-2.5 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-on-surface-variant hover:text-primary font-body-md-medium text-body-md-medium shadow-sm transition-all group" type="button">
+<span class="material-symbols-outlined text-[18px] group-hover:scale-110 transition-transform">add</span>
+<span>Add task</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Board Summary Floating Footer Bar -->
+<div class="mt-space-2xl bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">insights</span>
+</div>
+<div>
+<h4 class="font-body-md-semibold text-body-md-semibold text-on-surface">Weekly Completion Target</h4>
+<p class="font-caption text-caption text-on-surface-variant">You have finished 5 of 9 committed tasks this week. Keep up the momentum!</p>
+</div>
+</div>
+<!-- Inline Mini Progress Indicator -->
+<div class="flex items-center gap-space-lg w-full md:w-auto">
+<div class="flex flex-col items-end gap-1 flex-1 md:flex-initial">
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs text-outline uppercase font-semibold">Target</span>
+<span class="font-body-md-semibold text-body-md-semibold text-primary">55%</span>
+</div>
+<div class="w-48 h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 55%;"></div>
+</div>
+</div>
+<button class="px-space-md py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-body-md-semibold text-body-md-semibold transition-colors shrink-0" type="button">
+        Sprint Details
+      </button>
+</div>
+</div>
+<!-- Interactive Filter Pill Behavior -->
+<script>
+    (function() {
+      const filterGroup = document.getElementById('filterPillGroup');
+      if (filterGroup) {
+        const buttons = filterGroup.querySelectorAll('button');
+        buttons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            buttons.forEach(b => {
+              b.className = 'flex items-center gap-1.5 px-space-sm py-1 rounded-full font-body-md-medium text-body-md-medium bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-colors';
+            });
+            btn.className = 'px-space-sm py-1 rounded-full font-body-md-semibold text-body-md-semibold bg-primary text-on-primary shadow-sm hover:opacity-95 transition-all';
+          });
+        });
+      }
+    })();
+  </script>
+</div></div></main></div></body></html>
